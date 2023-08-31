@@ -21,7 +21,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: "gatsby-plugin-google-gtag",
       options: {
         trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
         gtagConfig: {
@@ -55,8 +55,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "",
-        dataset: "",
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
       },
     },
   ],
