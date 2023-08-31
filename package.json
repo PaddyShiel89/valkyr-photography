@@ -8,12 +8,17 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "start": "gatsby develop",
+    "typecheck": "tsc --noEmit",
+    "sanity:build": "cd ./studio/ && npm run build",
+    "sanity:deploy": "cd ./studio/ && npm run deploy",
+    "sanity:deploy-graphql": "cd ./studio/ && npm run deploy-graphql",
+    "sanity:dev": "cd ./studio/ && npm run dev",
+    "sanity:start": "cd ./studio/ && npm run start"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
