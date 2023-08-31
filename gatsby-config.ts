@@ -7,6 +7,8 @@ require("dotenv").config({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "Valkyr Photography",
+    description:
+      "The portfolio of Valkyr Photography, specialising in boudoir, lingerie, and erotic photography in London, UK.",
     siteUrl: "https://www.valkyrphotography.com",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
