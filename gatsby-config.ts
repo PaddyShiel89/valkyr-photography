@@ -21,6 +21,22 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
+    },
+
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
