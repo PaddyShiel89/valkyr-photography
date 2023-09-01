@@ -21,7 +21,9 @@
     "sanity:dev": "cd ./studio/ && npm run dev",
     "sanity:start": "cd ./studio/ && npm run start",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "storybook:test": "test-storybook",
+    "storybook:test:watch": "test-storybook --watch"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
@@ -45,12 +47,14 @@
     "@babel/preset-env": "^7.22.14",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.11",
+    "@storybook/addon-a11y": "^7.4.0",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
     "@storybook/blocks": "^7.4.0",
     "@storybook/react": "^7.4.0",
     "@storybook/react-webpack5": "^7.4.0",
+    "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "^0.2.0",
     "@testing-library/jest-dom": "^6.1.2",
     "@testing-library/react": "^14.0.0",
