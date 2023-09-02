@@ -1,8 +1,8 @@
 import React from "react";
-import { base as pcBase } from "./Photocard.module.scss";
+import { base as pcBase } from "./PhotosetCard.module.scss";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 
-const Photocard = ({ date, models }: PhotocardProps) => {
+const PhotosetCard = ({ date, models }: PhotosetCardProps) => {
   const month = getMonthFromSanityDate(date as string);
   const year = getYearFromSanityDate(date as string);
 
@@ -26,6 +26,6 @@ const Photocard = ({ date, models }: PhotocardProps) => {
   );
 };
 
-export default Photocard;
+export default PhotosetCard;
 
-type PhotocardProps = Queries.SanityPhotosets & {};
+type PhotosetCardProps = Queries.SanityPhotosets;
