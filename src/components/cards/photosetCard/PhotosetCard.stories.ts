@@ -12,7 +12,9 @@ type Story = StoryObj<typeof PhotosetCard>;
 
 export const Default: Story = {
   args: {
-    date: "2023-06-10",
     models: "Kelly Klein",
+    date: "2023-06-10",
+    description:
+      "A set from my second shoot with the gorgeous Kelly Klein.\nShe wore a lemon and orange set that looked incredible.",
   },
 };

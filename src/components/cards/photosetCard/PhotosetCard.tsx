@@ -2,11 +2,11 @@ import React from "react";
 import { base as pcBase } from "./PhotosetCard.module.scss";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 
-const PhotosetCard = ({ date, models }: PhotosetCardProps) => {
+const PhotosetCard = ({ date, description, models }: PhotosetCardProps) => {
   const month = getMonthFromSanityDate(date as string);
   const year = getYearFromSanityDate(date as string);
 
-  console.log(month);
+  console.log(description);
   return (
     <div className={pcBase}>
       <img
@@ -20,7 +20,8 @@ const PhotosetCard = ({ date, models }: PhotosetCardProps) => {
           {month} {year}
         </div>
       </h5>
-      <div>Body content</div>
+      <div>{description}</div>
+
       <div>Link</div>
     </div>
   );
@@ -28,4 +29,8 @@ const PhotosetCard = ({ date, models }: PhotosetCardProps) => {
 
 export default PhotosetCard;
 
-type PhotosetCardProps = Queries.SanityPhotosets;
+type PhotosetCardProps = {
+  date: Queries.SanityPhotosets["date"];
+  description: Queries.SanityPhotosets["description"];
+  models: Queries.SanityPhotosets["models"];
+};

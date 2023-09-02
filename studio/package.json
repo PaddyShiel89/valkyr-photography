@@ -9,17 +9,19 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "npx -y sanity@latest graphql deploy"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
     "@sanity/vision": "^3.16.2",
+    "easymde": "^2.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.16.2",
+    "sanity-plugin-markdown": "^4.1.0",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {

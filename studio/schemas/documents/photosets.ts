@@ -22,8 +22,7 @@ const photosets: SchemaTypeDefinition = {
     },
     {
       name: 'description',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'markdown',
       title: 'Description',
       description:
         'A brief description of the photoset, no more than a couple of short paragraphs.',
