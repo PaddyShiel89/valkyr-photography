@@ -31,6 +31,7 @@ const photosets: SchemaTypeDefinition = {
     {
       name: 'categories',
       type: 'array',
+      description: 'The categories that apply to the photoset.',
       of: [
         {
           type: 'reference',
@@ -38,6 +39,24 @@ const photosets: SchemaTypeDefinition = {
         },
       ],
       validation: (Rule) => Rule.required().unique(),
+    },
+    {
+      name: 'photos',
+      type: 'array',
+      description: 'The photos in the photoset.',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'photos'}],
+        },
+      ],
+    },
+    {
+      name: 'featuredPhoto',
+      type: 'reference',
+      to: [{type: 'photos'}],
+      description:
+        "The photo that will be displayed as the photoset's feature image where appropriate.",
     },
   ],
 }
