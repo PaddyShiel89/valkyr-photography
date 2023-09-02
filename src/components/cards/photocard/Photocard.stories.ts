@@ -10,4 +10,8 @@ const meta: Meta<typeof Photocard> = {
 export default meta;
 type Story = StoryObj<typeof Photocard>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    models: "Kelly Klein",
+  },
+};

@@ -18,6 +18,7 @@
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "./types/globals.d.ts"
+    "./types/globals.d.ts",
+    "./types/gatsby-types.d.ts"
   ]
 }

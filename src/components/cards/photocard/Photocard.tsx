@@ -1,7 +1,7 @@
 import React from "react";
 import { base as pcBase } from "./Photocard.module.scss";
 
-const Photocard = () => {
+const Photocard = ({ models }: PhotocardProps) => {
   return (
     <div className={pcBase}>
       <img
@@ -10,7 +10,7 @@ const Photocard = () => {
       />
       <div>Categories</div>
       <h5>
-        <div>Heading</div>
+        <div>{models}</div>
         <div>Subheading</div>
       </h5>
       <div>Body content</div>
@@ -20,3 +20,5 @@ const Photocard = () => {
 };
 
 export default Photocard;
+
+type PhotocardProps = Queries.SanityPhotosets & {};
