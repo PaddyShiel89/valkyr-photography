@@ -145,9 +145,10 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   return (
     <main style={pageStyles}>
       <PhotosetCard
-        models={photocardData.models}
+        categories={photocardData.categories}
         date={photocardData.date}
         description={photocardData.description}
+        models={photocardData.models}
       />
       <h1 style={headingStyles}>
         Congratulations
@@ -209,6 +210,11 @@ export const query = graphql`
         models
         date
         description
+        categories {
+          id
+          name
+          level
+        }
       }
     }
   }
