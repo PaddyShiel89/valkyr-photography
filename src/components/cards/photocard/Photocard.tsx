@@ -1,7 +1,12 @@
 import React from "react";
 import { base as pcBase } from "./Photocard.module.scss";
+import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 
-const Photocard = ({ models }: PhotocardProps) => {
+const Photocard = ({ date, models }: PhotocardProps) => {
+  const month = getMonthFromSanityDate(date as string);
+  const year = getYearFromSanityDate(date as string);
+
+  console.log(month);
   return (
     <div className={pcBase}>
       <img
@@ -11,7 +16,9 @@ const Photocard = ({ models }: PhotocardProps) => {
       <div>Categories</div>
       <h5>
         <div>{models}</div>
-        <div>Subheading</div>
+        <div>
+          {month} {year}
+        </div>
       </h5>
       <div>Body content</div>
       <div>Link</div>

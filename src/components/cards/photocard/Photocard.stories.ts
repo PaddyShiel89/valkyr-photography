@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Photocard>;
 
 export const Default: Story = {
   args: {
+    date: "2023-06-10",
     models: "Kelly Klein",
   },
 };

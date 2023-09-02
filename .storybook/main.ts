@@ -117,6 +117,7 @@ const config: StorybookConfig = {
       alias: {
         ...config.resolve?.alias,
         "@components": path.resolve(__dirname, "../src/components"),
+        "@helpers": path.resolve(__dirname, "../src/helpers/index.ts"),
       },
       mainFields: ["browser", "module", "main"],
     };
