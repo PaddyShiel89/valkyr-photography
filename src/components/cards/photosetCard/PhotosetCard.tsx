@@ -1,10 +1,12 @@
 import React from "react";
-import { base as pcBase } from "./PhotosetCard.module.scss";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
+import { base as pcBase } from "./PhotosetCard.module.scss";
 
 const PhotosetCard = ({ date, description, models }: PhotosetCardProps) => {
   const month = getMonthFromSanityDate(date as string);
   const year = getYearFromSanityDate(date as string);
+  const subtitle = month + " " + year;
 
   console.log(description);
   return (
@@ -16,12 +18,9 @@ const PhotosetCard = ({ date, description, models }: PhotosetCardProps) => {
       <div>Categories</div>
       <h5>
         <div>{models}</div>
-        <div>
-          {month} {year}
-        </div>
+        <div>{subtitle}</div>
       </h5>
-      <div>{description}</div>
-
+      {!!description ? <ReactMarkdown children={description} /> : null}
       <div>Link</div>
     </div>
   );
