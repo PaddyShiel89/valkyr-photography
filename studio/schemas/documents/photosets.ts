@@ -1,9 +1,9 @@
 import {SchemaTypeDefinition} from 'sanity'
 
 const photosets: SchemaTypeDefinition = {
-  title: 'Photosets',
   name: 'photosets',
   type: 'document',
+  title: 'Photosets',
   fields: [
     {
       name: 'models',
@@ -27,6 +27,17 @@ const photosets: SchemaTypeDefinition = {
       description:
         'A brief description of the photoset, no more than a couple of short paragraphs.',
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'categories',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'photoCategories'}],
+        },
+      ],
+      validation: (Rule) => Rule.required().unique(),
     },
   ],
 }
