@@ -1,17 +1,13 @@
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import imageUrlBuilder from "@sanity/image-url";
-import { createClient } from "@sanity/client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
+import {
+  getMonthFromSanityDate,
+  getYearFromSanityDate,
+  getSanityImageBuilder,
+} from "@helpers";
 import { base as pcBase } from "./PhotosetCard.module.scss";
-
-const client = createClient({
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
-  dataset: process.env.SANITY_STUDIO_DATASET,
-});
-const builder = imageUrlBuilder(client);
 
 const PhotosetCard = ({
   categories,
@@ -27,8 +23,7 @@ const PhotosetCard = ({
   return (
     <div className={pcBase}>
       <img
-        src={builder
-          .image(featuredPhoto?.image as SanityImageSource)
+        src={getSanityImageBuilder(featuredPhoto?.image as SanityImageSource)
           .width(800)
           .quality(100)
           .url()}
