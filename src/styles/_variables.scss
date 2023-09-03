@@ -1,10 +1,20 @@
 @import "bootstrap/scss/functions";
 
+/* --------------------------------- Options -------------------------------- */
+
+$prefix: "valkyr-";
+
+/* ------------------------------- Components ------------------------------- */
+
+$border-radius: 0;
+
+/* ------------------------------- Typography ------------------------------- */
+
+$font-family-sans-serif: "Roboto", sans-serif;
 // Set 1rem to 10px
 $font-size-root: 62.5%;
 $font-size-base: 1.6rem;
 
-$font-family-sans-serif: "Roboto", sans-serif;
 $headings-font-family: "Noto Serif", serif;
 
 @import "bootstrap/scss/variables";
