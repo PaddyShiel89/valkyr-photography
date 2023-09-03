@@ -25,7 +25,7 @@ const PhotosetCard = ({
 
   return (
     <div className={cBase}>
-      <ConditionalLink to={slug}>
+      <ConditionalLink to={slug} aria-label="Check out the photoset">
         <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
@@ -35,7 +35,7 @@ const PhotosetCard = ({
           ))}
         </ul>
         <h5>
-          <ConditionalLink to={slug}>
+          <ConditionalLink to={slug} aria-label="Check out the photoset">
             <div>{models}</div>
             <div>{subtitle}</div>
           </ConditionalLink>
