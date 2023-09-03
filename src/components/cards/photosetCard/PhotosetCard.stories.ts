@@ -25,5 +25,14 @@ export const Default: Story = {
     date: "2023-06-10",
     description:
       "A set from my second shoot with the gorgeous Kelly Klein.\n\nShe wore a lemon and orange set that looked incredible.",
+    featuredPhoto: {
+      id: "-25b223a4-226a-5bf4-bf78-20a89f75ceb8",
+      image: {
+        // @ts-ignore
+        asset: {
+          _id: "image-753ee5670d791269d3b923c4983559a123a89d83-2500x1667-jpg",
+        },
+      },
+    },
   },
 };

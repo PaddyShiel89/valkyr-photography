@@ -149,6 +149,7 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
         date={photocardData.date}
         description={photocardData.description}
         models={photocardData.models}
+        featuredPhoto={photocardData.featuredPhoto}
       />
       <h1 style={headingStyles}>
         Congratulations
@@ -214,6 +215,14 @@ export const query = graphql`
           id
           name
           level
+        }
+        featuredPhoto {
+          id
+          image {
+            asset {
+              _id
+            }
+          }
         }
       }
     }

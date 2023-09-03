@@ -39,7 +39,6 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
-
     {
       resolve: "gatsby-source-filesystem",
       options: {
