@@ -29,9 +29,11 @@ const PhotosetCard = ({
     featuredPhoto?.image?.asset?.gatsbyImage || null
   ) as IGatsbyImageData;
 
+  const linkText = "Check out the photoset";
+
   return (
     <div className={cBase}>
-      <ConditionalLink to={slug} aria-label="Check out the photoset">
+      <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
         <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
@@ -41,7 +43,7 @@ const PhotosetCard = ({
           ))}
         </ul>
         <h5>
-          <ConditionalLink to={slug} aria-label="Check out the photoset">
+          <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
             <div className={cTitle}>{models}</div>
             <div className={cSubtitle}>{subtitle}</div>
           </ConditionalLink>
@@ -53,7 +55,7 @@ const PhotosetCard = ({
         ) : null}
         {slug ? (
           <div>
-            <Link to={slug}>Check out the photoset</Link>
+            <Link to={slug}>{linkText}</Link>
           </div>
         ) : null}
       </div>
