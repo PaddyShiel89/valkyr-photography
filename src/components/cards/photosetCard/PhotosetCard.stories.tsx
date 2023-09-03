@@ -66,5 +66,6 @@ export const Default: Story = {
       "A set from my second shoot with the gorgeous Kelly Klein.\n\nShe wore a lemon and orange set that looked incredible.",
     // @ts-ignore
     featuredPhoto,
+    slug: "kelly-klein-june-2023",
   },
 };

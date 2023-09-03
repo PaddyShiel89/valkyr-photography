@@ -6,7 +6,6 @@ import "../styles/global.scss";
 import PhotosetCard from "@components/cards/photosetCard/PhotosetCard";
 
 const IndexPage = ({ data }: PageProps<IndexPageData>) => {
-  console.log(data);
   const photocardData = data.allSanityPhotosets.nodes[0];
   return (
     <main>
@@ -16,6 +15,7 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
         description={photocardData.description}
         models={photocardData.models}
         featuredPhoto={photocardData.featuredPhoto}
+        slug={photocardData.slug}
       />
     </main>
   );
@@ -30,6 +30,7 @@ export const query = graphql`
         models
         date
         description
+        slug
         categories {
           id
           name

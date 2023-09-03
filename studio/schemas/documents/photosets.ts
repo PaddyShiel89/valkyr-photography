@@ -50,6 +50,7 @@ const photosets: SchemaTypeDefinition = {
           to: [{type: 'photos'}],
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'featuredPhoto',
@@ -57,6 +58,14 @@ const photosets: SchemaTypeDefinition = {
       to: [{type: 'photos'}],
       description:
         "The photo that will be displayed as the photoset's feature image where appropriate.",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      type: 'string',
+      title: 'Page slug',
+      description: 'The url slug for the photoset page.',
+      validation: (Rule) => Rule.required(),
     },
   ],
 }

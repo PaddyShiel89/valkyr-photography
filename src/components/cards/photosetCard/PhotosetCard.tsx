@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
@@ -11,6 +12,7 @@ const PhotosetCard = ({
   description,
   featuredPhoto,
   models,
+  slug,
 }: PhotosetCardProps) => {
   const month = getMonthFromSanityDate(date as string);
   const year = getYearFromSanityDate(date as string);
@@ -33,7 +35,11 @@ const PhotosetCard = ({
         <div>{subtitle}</div>
       </h5>
       {!!description ? <ReactMarkdown children={description} /> : null}
-      <div>Link</div>
+      {slug ? (
+        <div>
+          <Link to={slug}>Check out the photoset</Link>
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -46,4 +52,5 @@ type PhotosetCardProps = {
   description: Queries.SanityPhotosets["description"];
   featuredPhoto: Queries.SanityPhotosets["featuredPhoto"];
   models: Queries.SanityPhotosets["models"];
+  slug: Queries.SanityPhotosets["slug"];
 };
