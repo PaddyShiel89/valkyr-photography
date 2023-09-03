@@ -16,8 +16,8 @@ global.__BASE_PATH__ = "/";
 // In Storybook, it makes more sense to log an action than doing an actual navigate. Check out the actions addon docs for more info: https://storybook.js.org/docs/react/essentials/actions
 
 // @ts-ignore
-window.___navigate = (pathname) => {
-  action("NavigateTo:")(pathname);
+window.___navigate = (pathname: string) => {
+  action("NavigateTo:")(pathname.split("/iframe.html")[1]);
 };
 
 const preview: Preview = {

@@ -18,24 +18,18 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config) => {
     // @ts-ignore
-    config.module.rules[0] = {
-      test: /\.(js|mjs|jsx|ts|tsx)$/,
-      type: "javascript/auto",
+    config.module.rules[2].exclude = [/node_modules/];
+    // @ts-ignore
+    config.module.rules[2].exclude = [/core-js/];
+    console.log(
+      "config.module.rules",
+      JSON.stringify(config.module?.rules, null, 2)
+    );
 
-      // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
-      // Remove core-js to prevent issues with Storybook.
-      exclude: [/node_modules/, /core-js/],
-      use: [
-        {
-          loader: "babel-loader",
-          options: {
-            // Use `babel-plugin-remove-graphql-queries` to remove static
-            // queries from components when rendering in storybook.
-            plugins: [require.resolve("babel-plugin-remove-graphql-queries")],
-          },
-        },
-      ],
-    };
+    // @ts-ignore
+    config.module.rules[2].use[0].options.plugins.push([
+      require.resolve("babel-plugin-remove-graphql-queries"),
+    ]);
 
     // Prevent webpack from using Storybook CSS rules to process SCSS modules
     config.module?.rules?.map((rule) =>
