@@ -4,7 +4,8 @@ import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
-import { base as pcBase } from "./PhotosetCard.module.scss";
+import { base as cBase, body as cBody } from "./PhotosetCard.module.scss";
+import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
 
 const PhotosetCard = ({
   categories,
@@ -23,23 +24,29 @@ const PhotosetCard = ({
   ) as IGatsbyImageData;
 
   return (
-    <div className={pcBase}>
-      <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
-      <div>
-        {categories?.map((c) => (
-          <span key={c?.id}>{c?.name}</span>
-        ))}
+    <div className={cBase}>
+      <ConditionalLink to={slug}>
+        <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
+      </ConditionalLink>
+      <div className={cBody}>
+        <ul>
+          {categories?.map((c) => (
+            <li key={c?.id}>{c?.name}</li>
+          ))}
+        </ul>
+        <h5>
+          <ConditionalLink to={slug}>
+            <div>{models}</div>
+            <div>{subtitle}</div>
+          </ConditionalLink>
+        </h5>
+        {!!description ? <ReactMarkdown children={description} /> : null}
+        {slug ? (
+          <div>
+            <Link to={slug}>Check out the photoset</Link>
+          </div>
+        ) : null}
       </div>
-      <h5>
-        <div>{models}</div>
-        <div>{subtitle}</div>
-      </h5>
-      {!!description ? <ReactMarkdown children={description} /> : null}
-      {slug ? (
-        <div>
-          <Link to={slug}>Check out the photoset</Link>
-        </div>
-      ) : null}
     </div>
   );
 };

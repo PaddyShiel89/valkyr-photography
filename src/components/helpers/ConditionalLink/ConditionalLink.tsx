@@ -7,6 +7,6 @@ const ConditionalLink = ({ to, children }: ConditionalLinkProps) =>
 export default ConditionalLink;
 
 type ConditionalLinkProps = {
-  to: string;
+  to: string | null;
   children: React.ReactNode;
 };
