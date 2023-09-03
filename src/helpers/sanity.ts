@@ -21,6 +21,7 @@ enum LongMonth {
 export const sanityClient = createClient({
   projectId: process.env.SANITY_STUDIO_PROJECT_ID,
   dataset: process.env.SANITY_STUDIO_DATASET,
+  apiVersion: "2021-08-31",
 });
 
 /** Returns the long name of the month from the provided date. */
