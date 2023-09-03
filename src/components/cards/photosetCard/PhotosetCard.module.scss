@@ -37,8 +37,22 @@
   @include border-radius(var(--#{$prefix}card-border-radius));
   @include box-shadow(var(--#{$prefix}card-box-shadow));
 
-  a:hover img {
-    opacity: 0.65 !important;
+  a {
+    text-decoration: none;
+
+    .title {
+      color: var(--#{$prefix}card-title-color);
+    }
+
+    .subtitle {
+      color: var(--#{$prefix}card-subtitle-color);
+    }
+
+    &:hover {
+      img {
+        opacity: 0.65 !important;
+      }
+    }
   }
 
   h5 {
