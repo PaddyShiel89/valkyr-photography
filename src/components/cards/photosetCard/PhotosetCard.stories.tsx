@@ -23,6 +23,7 @@ const categories = {
 const meta: Meta<typeof PhotosetCard> = {
   title: "Cards/Photoset card",
   component: PhotosetCard,
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div style={{ width: "40rem" }}>
