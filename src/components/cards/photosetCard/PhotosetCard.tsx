@@ -1,12 +1,8 @@
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import {
-  getMonthFromSanityDate,
-  getYearFromSanityDate,
-  getSanityImageBuilder,
-} from "@helpers";
+import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import { base as pcBase } from "./PhotosetCard.module.scss";
 
 const PhotosetCard = ({
@@ -19,16 +15,12 @@ const PhotosetCard = ({
   const month = getMonthFromSanityDate(date as string);
   const year = getYearFromSanityDate(date as string);
   const subtitle = month + " " + year;
+
   console.log(featuredPhoto);
+  const imgData = getImage(featuredPhoto?.image?.asset?.gatsbyImage || null);
   return (
     <div className={pcBase}>
-      <img
-        src={getSanityImageBuilder(featuredPhoto?.image as SanityImageSource)
-          .width(800)
-          .quality(100)
-          .url()}
-        alt=""
-      />
+      {imgData ? <GatsbyImage alt="" image={imgData} /> : null}
       <div>
         {categories?.map((c) => (
           <span key={c?.id}>{c?.name}</span>
