@@ -4,7 +4,13 @@ import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
-import { base as cBase, body as cBody } from "./PhotosetCard.module.scss";
+import {
+  base as cBase,
+  body as cBody,
+  description as cDescription,
+  subtitle as cSubtitle,
+  title as cTitle,
+} from "./PhotosetCard.module.scss";
 import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
 
 const PhotosetCard = ({
@@ -36,11 +42,15 @@ const PhotosetCard = ({
         </ul>
         <h5>
           <ConditionalLink to={slug} aria-label="Check out the photoset">
-            <div>{models}</div>
-            <div>{subtitle}</div>
+            <div className={cTitle}>{models}</div>
+            <div className={cSubtitle}>{subtitle}</div>
           </ConditionalLink>
         </h5>
-        {!!description ? <ReactMarkdown children={description} /> : null}
+        {!!description ? (
+          <div className={cDescription}>
+            <ReactMarkdown children={description} />
+          </div>
+        ) : null}
         {slug ? (
           <div>
             <Link to={slug}>Check out the photoset</Link>

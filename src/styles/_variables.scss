@@ -4,6 +4,11 @@
 
 $prefix: "valkyr-";
 
+/* --------------------------------- Spacing -------------------------------- */
+
+$enable-shadows: true;
+$spacer: 1.5rem;
+
 /* ------------------------------- Components ------------------------------- */
 
 $border-radius: 0;
@@ -16,6 +21,13 @@ $font-size-root: 62.5%;
 $font-size-base: 1.6rem;
 
 $headings-font-family: "Noto Serif", serif;
+
+/* ---------------------------------- Cards --------------------------------- */
+
+$card-spacer-y: $spacer * 2;
+$card-spacer-x: $spacer * 2;
+$card-border-width: 0;
+$card-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
 
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";

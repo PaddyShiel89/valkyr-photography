@@ -45,3 +45,24 @@
   padding: var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
   color: var(--#{$prefix}card-color);
 }
+
+.description {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  margin-bottom: var(--#{$prefix}card-title-spacer-y);
+  color: var(--#{$prefix}card-title-color);
+}
+
+.subtitle {
+  margin-top: calc(
+    -0.5 * var(--#{$prefix}card-title-spacer-y)
+  ); // stylelint-disable-line function-disallowed-list
+  margin-bottom: 0;
+  color: var(--#{$prefix}card-subtitle-color);
+
+  font-size: 85%;
+}
