@@ -36,6 +36,14 @@
     var(--#{$prefix}card-border-color);
   @include border-radius(var(--#{$prefix}card-border-radius));
   @include box-shadow(var(--#{$prefix}card-box-shadow));
+
+  a:hover img {
+    opacity: 0.65 !important;
+  }
+
+  h5 {
+    display: flex;
+  }
 }
 
 .body {
