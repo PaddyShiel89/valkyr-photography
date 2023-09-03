@@ -1,0 +1,13 @@
+@import "bootstrap/scss/functions";
+
+// Set 1rem to 10px
+$font-size-root: 62.5%;
+$font-size-base: 1.6rem;
+
+$font-family-sans-serif: "Roboto", sans-serif;
+$headings-font-family: "Noto Serif", serif;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
