@@ -21,11 +21,10 @@ const categories: Queries.SanityPhotosets["categories"] = [
 // In order to get sources to work in Storybook, they must each be prepended
 // with the localhost domain, which must be running.
 const featuredPhoto = {
-  id: "-25b223a4-226a-5bf4-bf78-20a89f75ceb8",
+  alt: "Blonde model Kelly Klein lying nearly nude on a kitchen counter.",
   image: {
     // @ts-ignore
     asset: {
-      _id: "image-753ee5670d791269d3b923c4983559a123a89d83-2500x1667-jpg",
       gatsbyImage: {
         images: {
           sources: [

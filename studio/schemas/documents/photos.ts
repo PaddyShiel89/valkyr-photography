@@ -19,6 +19,12 @@ const photos: SchemaTypeDefinition = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'alt',
+      type: 'string',
+      title: 'Alt text',
+      description: 'The alt text used to describe the image.',
+    },
+    {
       name: 'categories',
       type: 'array',
       description: 'The categories that apply to the photo.',

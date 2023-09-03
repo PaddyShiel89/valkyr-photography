@@ -36,10 +36,9 @@ export const query = graphql`
           level
         }
         featuredPhoto {
-          id
+          alt
           image {
             asset {
-              _id
               gatsbyImage(width: 600, quality: 100)
             }
           }
