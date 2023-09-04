@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@helpers": ["./src/helpers/index.ts"]
+      "@helpers": ["./src/helpers/index.ts"],
+      "@testing/*": ["./testing/*"]
     }
   },
   "include": [

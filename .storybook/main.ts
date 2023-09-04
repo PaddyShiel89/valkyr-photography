@@ -21,10 +21,6 @@ const config: StorybookConfig = {
     config.module.rules[2].exclude = [/node_modules/];
     // @ts-ignore
     config.module.rules[2].exclude = [/core-js/];
-    console.log(
-      "config.module.rules",
-      JSON.stringify(config.module?.rules, null, 2)
-    );
 
     // @ts-ignore
     config.module.rules[2].use[0].options.plugins.push([
@@ -112,6 +108,7 @@ const config: StorybookConfig = {
         ...config.resolve?.alias,
         "@components": path.resolve(__dirname, "../src/components"),
         "@helpers": path.resolve(__dirname, "../src/helpers/index.ts"),
+        "@testing": path.resolve(__dirname, "../testing"),
       },
       mainFields: ["browser", "module", "main"],
     };
