@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import ReactMarkdown from "react-markdown";
 import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
@@ -65,7 +65,7 @@ const PhotosetCard = ({
 
 export default PhotosetCard;
 
-type PhotosetCardProps = {
+export type PhotosetCardProps = {
   categories: Queries.SanityPhotosets["categories"];
   date: Queries.SanityPhotosets["date"];
   description: Queries.SanityPhotosets["description"];
