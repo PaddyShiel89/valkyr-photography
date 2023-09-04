@@ -38,9 +38,13 @@ const PhotosetCard = ({
       </ConditionalLink>
       <div className={cBody}>
         <ul>
-          {categories?.map((c) => (
-            <li key={c?.id}>{c?.name}</li>
-          ))}
+          {categories?.map((c, i) =>
+            i < 3 ? (
+              <li key={c?.id} data-testid="category">
+                {c?.name}
+              </li>
+            ) : null
+          )}
         </ul>
         <h5>
           <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
