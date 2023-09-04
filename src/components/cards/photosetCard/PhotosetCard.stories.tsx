@@ -1,24 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import PhotosetCard from "./PhotosetCard";
-
-const categories = {
-  boudoir: {
-    id: "-ca242fcf-8fe8-5bba-8fcc-55ad5f4d7987",
-    name: "boudoir",
-    level: "nsfw",
-  },
-  fashion: {
-    id: "-f80683ab-36dc-574a-8dac-9d4a2a779ad9",
-    name: "fashion",
-    level: "sfw",
-  },
-  glamour: {
-    id: "-62e3a7ed-7d71-51c4-af10-04251dae2a5a",
-    name: "glamour",
-    level: "nsfw",
-  },
-};
+import { categories } from "../../../stories/data";
 
 const meta: Meta<typeof PhotosetCard> = {
   title: "Cards/Photoset card",
@@ -32,13 +15,7 @@ const meta: Meta<typeof PhotosetCard> = {
     ),
   ],
   argTypes: {
-    categories: {
-      options: Object.keys(categories),
-      mapping: categories,
-      control: {
-        type: "check",
-      },
-    },
+    categories: categories.argTypes,
   },
   args: {
     // @ts-ignore - Converted via `argTypes.mapping`
