@@ -7,6 +7,7 @@ import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import {
   base as cBase,
   body as cBody,
+  categories as cCategories,
   description as cDescription,
   subtitle as cSubtitle,
   title as cTitle,
@@ -37,7 +38,7 @@ const PhotosetCard = ({
         <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
-        <ul>
+        <ul className={cCategories}>
           {categories?.map((c, i) =>
             i < 3 ? (
               <li key={c?.id} data-testid="category">

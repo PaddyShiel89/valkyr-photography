@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "bootstrap/scss/functions";
 
 /* ------------------------------ Color system ------------------------------ */
@@ -45,6 +46,12 @@ $card-subtitle-color: $gray-700;
 $card-border-width: 0;
 $card-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
 $card-bg: $gray-100;
+
+/* --------------------------------- Badges --------------------------------- */
+
+$badge-font-size: 85%;
+$badge-padding-y: math.div($spacer, 2);
+$badge-padding-x: math.div($spacer, 3) * 2;
 
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
