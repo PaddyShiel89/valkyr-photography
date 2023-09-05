@@ -1,18 +1,19 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import {
   base as cBase,
   body as cBody,
+  ctaContainer as cCTAContainer,
   categories as cCategories,
   description as cDescription,
   subtitle as cSubtitle,
   title as cTitle,
 } from "./PhotosetCard.module.scss";
 import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
+import { CTAGatsbyLink } from "@components/buttons/CallToAction/CallToAction";
 
 const PhotosetCard = ({
   categories,
@@ -59,8 +60,8 @@ const PhotosetCard = ({
           </div>
         ) : null}
         {slug ? (
-          <div>
-            <Link to={slug}>{linkText}</Link>
+          <div className={cCTAContainer}>
+            <CTAGatsbyLink to={slug}>{linkText}</CTAGatsbyLink>
           </div>
         ) : null}
       </div>
