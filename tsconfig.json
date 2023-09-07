@@ -12,6 +12,7 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@helpers": ["./src/helpers/index.ts"],
+      "@styles": ["./src/styles/*"],
       "@testing/*": ["./testing/*"]
     }
   },

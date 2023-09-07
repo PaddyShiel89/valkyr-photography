@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
-import "../styles/global.scss";
+import "@styles/global.scss";
 
 import PhotosetCard from "@components/cards/PhotosetCard/PhotosetCard";
 
