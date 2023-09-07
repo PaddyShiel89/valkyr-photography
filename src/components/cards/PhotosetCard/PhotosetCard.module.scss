@@ -99,7 +99,7 @@
     vertical-align: baseline;
     @include border-radius(var(--#{$prefix}badge-border-radius));
     @include gradient-bg();
-    background-color: $gray-900;
+    background-color: $gray-700;
 
     &:not(:last-child) {
       margin-right: 0.75rem;
@@ -124,6 +124,7 @@
 
 .ctaContainer {
   display: flex;
+  margin-top: $spacer;
 
   a {
     width: 100%;

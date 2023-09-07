@@ -1,14 +1,6 @@
 @import "@styles/variables";
 
 .callToAction {
-  border-style: solid;
-  border-width: 0.5rem;
-  border-image-slice: 1;
-
-  padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
-
-  border-image-source: linear-gradient(to right, $blue-900, $blue-600);
-
-  color: $blue-800;
-  font-weight: 700;
+  @include button-outline-variant($gray-900);
+  @include button-size($spacer, $spacer, $font-size-base, 0);
 }
