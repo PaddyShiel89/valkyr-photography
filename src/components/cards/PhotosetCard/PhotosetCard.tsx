@@ -2,7 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
-import { CTAGatsbyLink } from "@components/buttons/CallToAction/CallToAction";
+import CallToAction from "@components/buttons/CallToAction/CallToAction";
 import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import {
@@ -50,7 +50,7 @@ const PhotosetCard = ({
         ) : null}
         {slug ? (
           <div className={cCTAContainer}>
-            <CTAGatsbyLink to={slug}>{linkText}</CTAGatsbyLink>
+            <CallToAction to={slug}>{linkText}</CallToAction>
           </div>
         ) : null}
       </div>
