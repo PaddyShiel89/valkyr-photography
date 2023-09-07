@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
 import "../styles/global.scss";
 
-import PhotosetCard from "@components/cards/photosetCard/PhotosetCard";
+import PhotosetCard from "@components/cards/PhotoCard/PhotosetCard";
 
 const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   const photocardData = data.allSanityPhotosets.nodes[0];
