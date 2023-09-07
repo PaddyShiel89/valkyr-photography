@@ -57,7 +57,7 @@
 
   h5 {
     position: relative;
-    top: -($spacer * 2);
+    top: -($spacer);
     right: 50%;
     transform: translateX(50%);
 
@@ -107,7 +107,7 @@
   margin-bottom: 0;
   color: var(--#{$prefix}card-subtitle-color);
 
-  font-size: 85%;
+  font-size: 80%;
 }
 
 .ctaContainer {
