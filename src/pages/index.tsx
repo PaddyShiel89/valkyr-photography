@@ -10,7 +10,6 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   return (
     <main>
       <PhotosetCard
-        categories={photocardData.categories}
         date={photocardData.date}
         description={photocardData.description}
         models={photocardData.models}
@@ -31,11 +30,6 @@ export const query = graphql`
         date
         description
         slug
-        categories {
-          id
-          name
-          level
-        }
         featuredPhoto {
           alt
           image {

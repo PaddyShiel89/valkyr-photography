@@ -2,21 +2,19 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
+import { CTAGatsbyLink } from "@components/buttons/CallToAction/CallToAction";
+import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import {
   base as cBase,
   body as cBody,
   ctaContainer as cCTAContainer,
-  categories as cCategories,
   description as cDescription,
   subtitle as cSubtitle,
   title as cTitle,
 } from "./PhotosetCard.module.scss";
-import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
-import { CTAGatsbyLink } from "@components/buttons/CallToAction/CallToAction";
 
 const PhotosetCard = ({
-  categories,
   date,
   description,
   featuredPhoto,
@@ -45,15 +43,6 @@ const PhotosetCard = ({
             <div className={cSubtitle}>{subtitle}</div>
           </ConditionalLink>
         </h5>
-        <ul className={cCategories}>
-          {categories?.map((c, i) =>
-            i < 3 ? (
-              <li key={c?.id} data-testid="category">
-                {c?.name}
-              </li>
-            ) : null
-          )}
-        </ul>
         {!!description ? (
           <div className={cDescription}>
             <ReactMarkdown children={description} />
@@ -72,7 +61,6 @@ const PhotosetCard = ({
 export default PhotosetCard;
 
 export type PhotosetCardProps = {
-  categories: Queries.SanityPhotosets["categories"];
   date: Queries.SanityPhotosets["date"];
   description: Queries.SanityPhotosets["description"];
   featuredPhoto: Queries.SanityPhotosets["featuredPhoto"];

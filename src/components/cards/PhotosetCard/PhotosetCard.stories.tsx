@@ -1,7 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import PhotosetCard from "./PhotosetCard";
-import { categories } from "../../../stories/data";
 
 const meta: Meta<typeof PhotosetCard> = {
   title: "Cards/Photoset card",
@@ -14,13 +13,6 @@ const meta: Meta<typeof PhotosetCard> = {
       </div>
     ),
   ],
-  argTypes: {
-    categories: categories.argTypes,
-  },
-  args: {
-    // @ts-ignore - Converted via `argTypes.mapping`
-    categories: ["glamour"],
-  },
   parameters: {
     layout: "centered",
   },
