@@ -23,6 +23,27 @@ window.___navigate = (pathname: string) => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
+    backgrounds: {
+      default: "white",
+      values: [
+        {
+          name: "white",
+          value: "#fff",
+        },
+        {
+          name: "gray-100",
+          value: "#f8f9fa",
+        },
+        {
+          name: "gray-900",
+          value: "#212529",
+        },
+        {
+          name: "black",
+          value: "#000",
+        },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

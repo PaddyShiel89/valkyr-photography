@@ -14,6 +14,9 @@ const meta: Meta<typeof PhotosetCard> = {
     ),
   ],
   parameters: {
+    backgrounds: {
+      default: "gray-100",
+    },
     layout: "centered",
   },
 };
