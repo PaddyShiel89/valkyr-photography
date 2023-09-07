@@ -1,6 +1,6 @@
 @import "@styles/variables";
 
 .callToAction {
-  @include button-outline-variant($gray-900);
+  @include button-outline-variant($black);
   @include button-size($spacer, $spacer, $font-size-base, 0);
 }
