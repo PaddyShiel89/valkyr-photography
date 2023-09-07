@@ -99,7 +99,7 @@
     vertical-align: baseline;
     @include border-radius(var(--#{$prefix}badge-border-radius));
     @include gradient-bg();
-    background-color: $gray-700;
+    background-color: $gray-600;
 
     &:not(:last-child) {
       margin-right: 0.75rem;
