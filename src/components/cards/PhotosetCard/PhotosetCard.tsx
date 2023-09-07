@@ -29,7 +29,7 @@ const PhotosetCard = ({
     featuredPhoto?.image?.asset?.gatsbyImage || null
   ) as IGatsbyImageData;
 
-  const linkText = "Check out the photoset";
+  const linkText = "Check out this photoset";
 
   return (
     <div className={cBase}>
