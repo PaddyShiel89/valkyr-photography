@@ -56,7 +56,28 @@
   }
 
   h5 {
+    position: relative;
+    top: -($spacer * 2);
+    right: 50%;
+    transform: translateX(50%);
+
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: -$spacer;
+    padding: $spacer $spacer 0;
+
+    text-align: center;
+    background-color: var(--#{$prefix}card-bg);
+
+    &::after {
+      content: "";
+      width: calc(100% - ($spacer * 3));
+      height: 1px;
+      background-color: $gray-600;
+      margin: $spacer 0;
+    }
   }
 }
 
@@ -64,7 +85,7 @@
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
-  padding: var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
+  padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y);
   color: var(--#{$prefix}card-color);
 }
 

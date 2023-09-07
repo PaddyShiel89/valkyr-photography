@@ -39,6 +39,12 @@ const PhotosetCard = ({
         <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
+        <h5>
+          <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
+            <div className={cTitle}>{models}</div>
+            <div className={cSubtitle}>{subtitle}</div>
+          </ConditionalLink>
+        </h5>
         <ul className={cCategories}>
           {categories?.map((c, i) =>
             i < 3 ? (
@@ -48,12 +54,6 @@ const PhotosetCard = ({
             ) : null
           )}
         </ul>
-        <h5>
-          <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
-            <div className={cTitle}>{models}</div>
-            <div className={cSubtitle}>{subtitle}</div>
-          </ConditionalLink>
-        </h5>
         {!!description ? (
           <div className={cDescription}>
             <ReactMarkdown children={description} />
