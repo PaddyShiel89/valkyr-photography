@@ -86,16 +86,7 @@ const config: StorybookConfig = {
             // Loads CSS file with resolved imports and returns CSS code
             "css-loader",
             // Loads and compiles a SASS/SCSS file
-            {
-              loader: "sass-loader",
-              // only if you are using additional global variable
-              options: {
-                additionalData: "@import 'src/styles/global.scss';",
-                sassOptions: {
-                  includePaths: ["src/styles"],
-                },
-              },
-            },
+            "sass-loader",
           ],
         },
       ],

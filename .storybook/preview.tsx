@@ -1,5 +1,7 @@
-import type { Preview } from "@storybook/react";
+import React from "react";
+import type { Decorator, Preview } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import "@styles/global.scss";
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -55,3 +57,56 @@ const preview: Preview = {
 };
 
 export default preview;
+
+export const withTheme: Decorator = (StoryFn, context) => {
+  const theme = context.parameters.theme || context.globals.theme;
+  const themeClass = theme === "dark" ? "dark-mode" : "";
+
+  switch (theme) {
+    case "side-by-side":
+      return (
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "6rem",
+          }}
+        >
+          <section className="">
+            <StoryFn />
+          </section>
+
+          <section className="dark-mode">
+            <StoryFn />
+          </section>
+        </div>
+      );
+
+    default:
+      return (
+        <section className={themeClass}>
+          <StoryFn />
+        </section>
+      );
+  }
+};
+
+export const globalTypes = {
+  theme: {
+    name: "Theme",
+    description: "Global theme for components",
+    defaultValue: "light",
+    toolbar: {
+      icon: "circlehollow",
+      items: [
+        { value: "light", icon: "circlehollow", title: "light" },
+        { value: "dark", icon: "circle", title: "dark" },
+        { value: "side-by-side", icon: "sidebar", title: "side by side" },
+      ],
+      showName: true,
+    },
+  },
+};
+
+export const decorators = [withTheme];
