@@ -1,6 +1,13 @@
+@import "@styles/mixins";
 @import "@styles/variables";
 
 .base {
   @include button-outline-variant($black);
   @include button-size($spacer, $spacer, $font-size-base, 0);
+}
+
+@include dark-mode {
+  .base {
+    @include button-outline-variant($white);
+  }
 }

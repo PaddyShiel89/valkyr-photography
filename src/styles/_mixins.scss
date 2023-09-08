@@ -1,0 +1,11 @@
+@mixin dark-mode($module: true) {
+  @if $module {
+    :global(.dark-mode) {
+      @content;
+    }
+  } @else {
+    .dark-mode {
+      @content;
+    }
+  }
+}
