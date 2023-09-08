@@ -69,7 +69,7 @@
       content: "";
       width: calc(100% - ($spacer * 3));
       height: 1px;
-      background-color: $gray-600;
+      background-color: var(--#{$prefix}card-subtitle-color);
       margin: $spacer 0;
     }
   }
