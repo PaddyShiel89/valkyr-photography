@@ -4,11 +4,13 @@ import type { HeadFC, PageProps } from "gatsby";
 import "@styles/global.scss";
 
 import PhotosetCard from "@components/cards/PhotosetCard/PhotosetCard";
+import DarkModeToggle from "@components/buttons/DarkModeToggle/DarkMode";
 
 const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   const photocardData = data.allSanityPhotosets.nodes[0];
   return (
     <main>
+      <DarkModeToggle />
       <PhotosetCard
         date={photocardData.date}
         description={photocardData.description}
