@@ -44,12 +44,12 @@ const PhotosetCard = ({
         <GatsbyImage alt={featuredPhoto.altText || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
-        <h5>
+        <h3>
           <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
             <div className={cTitle}>{modelNamesAsTitle}</div>
             <div className={cSubtitle}>{subtitle}</div>
           </ConditionalLink>
-        </h5>
+        </h3>
         {!!description ? (
           <div className={cDescription}>
             <ReactMarkdown children={description} />
