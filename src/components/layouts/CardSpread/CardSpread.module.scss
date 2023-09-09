@@ -7,10 +7,19 @@
   --#{$prefix}card-spread-padding-x: #{$section-padding-x};
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: var(--#{$prefix}card-spread-padding-y)
     var(--#{$prefix}card-spread-padding-x);
   background-color: var(--#{$prefix}card-spread-bg);
+
+  h2 {
+    margin-bottom: calc(var(--#{$prefix}card-spread-padding-y) / 2);
+  }
+
+  & > a {
+    margin-top: calc(var(--#{$prefix}card-spread-padding-y) / 2);
+  }
 }
 
 .inner {

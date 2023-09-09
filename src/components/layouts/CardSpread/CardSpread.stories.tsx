@@ -40,6 +40,10 @@ const data: PhotosetCardProps[] =
 
 export const Default: Story = {
   args: {
+    callToAction: {
+      children: "View all photosets",
+      to: "photosets",
+    },
     children: (
       <>
         <PhotosetCard {...data[0]} />
@@ -48,5 +52,6 @@ export const Default: Story = {
         <PhotosetCard {...data[3]} />
       </>
     ),
+    title: "Recent photosets",
   },
 };

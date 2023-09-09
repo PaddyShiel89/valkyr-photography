@@ -39,7 +39,10 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   return (
     <main>
       <DarkModeToggle />
-      <CardSpread>
+      <CardSpread
+        callToAction={{ children: "Browse all photosets", to: "/photosets/" }}
+        title="Recently added photosets"
+      >
         <PhotosetCard {...recentPhotosetsData[0]} />
         <PhotosetCard {...recentPhotosetsData[1]} />
         <PhotosetCard {...recentPhotosetsData[2]} />

@@ -18,5 +18,5 @@ export default CallToAction;
 // time refactoring later.
 type CallToActionCommonProps = {};
 
-type CallToActionProps = Omit<GatsbyLinkProps<{}>, "ref"> &
+export type CallToActionProps = Omit<GatsbyLinkProps<{}>, "ref"> &
   CallToActionCommonProps;
