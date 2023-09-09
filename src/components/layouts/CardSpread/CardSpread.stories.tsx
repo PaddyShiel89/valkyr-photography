@@ -16,7 +16,7 @@ const meta: Meta<typeof CardSpread> = {
     backgrounds: {
       default: "white",
     },
-    layout: "centered",
+    layout: "fullscreen",
   },
 };
 
