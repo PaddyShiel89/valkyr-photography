@@ -23,6 +23,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-use-dark-mode",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-google-gtag",
@@ -39,7 +40,6 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
-
     {
       resolve: "gatsby-source-filesystem",
       options: {

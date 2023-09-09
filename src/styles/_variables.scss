@@ -1,0 +1,102 @@
+@use "sass:math";
+@import "bootstrap/scss/functions";
+
+/* ------------------------------ Color system ------------------------------ */
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$blue: #2b8fd4;
+
+$blue-100: tint-color($blue, 80%) !default;
+$blue-200: tint-color($blue, 60%) !default;
+$blue-300: tint-color($blue, 40%) !default;
+$blue-400: tint-color($blue, 20%) !default;
+$blue-500: $blue !default;
+$blue-600: shade-color($blue, 20%) !default;
+$blue-700: shade-color($blue, 40%) !default;
+$blue-800: shade-color($blue, 60%) !default;
+$blue-900: shade-color($blue, 80%) !default;
+
+$charcoal: mix($gray-900, $black);
+
+/* --------------------------------- Options -------------------------------- */
+
+$prefix: "valkyr-";
+
+/* --------------------------------- Spacing -------------------------------- */
+
+$enable-shadows: true;
+$spacer: 1.5rem;
+
+/* ---------------------------------- Body ---------------------------------- */
+
+$body-color: $gray-900;
+$body-bg: $white;
+
+/* ------------------------------- Components ------------------------------- */
+
+$border-radius: 0;
+$border-radius-lg: 0;
+
+$section-padding-y: $spacer * 4;
+$section-padding-x: $spacer * 2;
+$section-color: $gray-100;
+
+/* ------------------------------- Typography ------------------------------- */
+
+$font-family-sans-serif: "Roboto", sans-serif;
+// Set 1rem to 10px
+$font-size-root: 62.5%;
+$font-size-base: 1.6rem;
+$font-size-lg: $font-size-base * 1.5;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+$headings-font-family: "Noto Serif", serif;
+$headings-color: $gray-900;
+$subheadings-color: $gray-600;
+
+/* ----------------------------- Buttons + Forms ---------------------------- */
+
+$input-btn-padding-y: $spacer;
+$input-btn-padding-x: $spacer * 2;
+
+$input-btn-padding-y-lg: $spacer * 1.5;
+$input-btn-padding-x-lg: $spacer * 3;
+
+/* ---------------------------------- Cards --------------------------------- */
+
+$card-spacer-y: $spacer * 2;
+$card-spacer-x: $spacer * 3;
+$card-title-color: $headings-color;
+$card-subtitle-color: $subheadings-color;
+$card-border-width: 0;
+$card-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
+
+/* --------------------------------- Badges --------------------------------- */
+
+$badge-font-size: 85%;
+$badge-padding-y: math.div($spacer, 2);
+$badge-padding-x: math.div($spacer, 3) * 2;
+
+@import "./variables-dark";
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";

@@ -1,0 +1,45 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.base {
+  --#{$prefix}card-spread-bg: #{$section-color};
+  --#{$prefix}card-spread-padding-y: #{$section-padding-y};
+  --#{$prefix}card-spread-padding-x: #{$section-padding-x};
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--#{$prefix}card-spread-padding-y)
+    var(--#{$prefix}card-spread-padding-x);
+  background-color: var(--#{$prefix}card-spread-bg);
+
+  h2 {
+    margin-bottom: calc(var(--#{$prefix}card-spread-padding-y) / 2);
+  }
+
+  & > a {
+    margin-top: var(--#{$prefix}card-spread-padding-y);
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(auto, 60rem);
+  gap: $spacer;
+
+  // 900px
+  @media (min-width: 56.25em) {
+    grid-template-columns: repeat(2, minmax(auto, 50rem));
+  }
+
+  // 1600px
+  @media (min-width: 100em) {
+    grid-template-columns: repeat(4, minmax(auto, 50rem));
+  }
+}
+
+@include dark-mode {
+  .base {
+    --#{$prefix}card-spread-bg: #{$section-color-dark};
+  }
+}

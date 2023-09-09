@@ -1,0 +1,29 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.base {
+  --#{$prefix}btn-bg: #{$body-bg};
+  @include button-outline-variant($black);
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $btn-border-radius
+  );
+}
+
+.lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
+}
+
+@include dark-mode {
+  .base {
+    --#{$prefix}btn-bg: #{$body-bg-dark};
+    @include button-outline-variant($white);
+  }
+}

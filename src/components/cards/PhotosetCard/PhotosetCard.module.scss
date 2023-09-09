@@ -1,0 +1,123 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.base {
+  // scss-docs-start card-css-vars
+  --#{$prefix}card-spacer-y: #{$card-spacer-y};
+  --#{$prefix}card-spacer-x: #{$card-spacer-x};
+  --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
+  --#{$prefix}card-title-color: #{$card-title-color};
+  --#{$prefix}card-subtitle-color: #{$card-subtitle-color};
+  --#{$prefix}card-border-width: #{$card-border-width};
+  --#{$prefix}card-border-color: #{$card-border-color};
+  --#{$prefix}card-border-radius: #{$card-border-radius};
+  --#{$prefix}card-box-shadow: #{$card-box-shadow};
+  --#{$prefix}card-inner-border-radius: #{$card-inner-border-radius};
+  --#{$prefix}card-height: #{$card-height};
+  --#{$prefix}card-bg: #{$card-bg};
+  // scss-docs-end card-css-vars
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  height: var(--#{$prefix}card-height);
+  color: var(--#{$prefix}body-color);
+  word-wrap: break-word;
+  background-color: var(--#{$prefix}card-bg);
+  background-clip: border-box;
+  border: var(--#{$prefix}card-border-width) solid
+    var(--#{$prefix}card-border-color);
+  @include border-radius(var(--#{$prefix}card-border-radius));
+  @include box-shadow(var(--#{$prefix}card-box-shadow));
+
+  a {
+    text-decoration: none;
+
+    .title {
+      color: var(--#{$prefix}card-title-color);
+    }
+
+    .subtitle {
+      color: var(--#{$prefix}card-subtitle-color);
+    }
+
+    &:hover {
+      img {
+        opacity: 0.65 !important;
+      }
+    }
+  }
+
+  h3 {
+    @include font-size($h5-font-size);
+    position: relative;
+    top: -($spacer);
+    right: 50%;
+    transform: translateX(50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: -$spacer;
+    padding: $spacer $spacer 0;
+
+    text-align: center;
+    background-color: var(--#{$prefix}card-bg);
+
+    &::after {
+      content: "";
+      width: calc(100% - ($spacer * 3));
+      height: 1px;
+      background-color: var(--#{$prefix}card-subtitle-color);
+      margin: $spacer 0;
+    }
+  }
+}
+
+.body,
+.footer {
+  padding: 0 var(--#{$prefix}card-spacer-x) var(--#{$prefix}card-spacer-y);
+  color: var(--#{$prefix}card-color);
+}
+
+.body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+}
+
+.footer {
+  a {
+    width: 100%;
+  }
+}
+
+.description {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  margin-bottom: var(--#{$prefix}card-title-spacer-y);
+  color: var(--#{$prefix}card-title-color);
+}
+
+.subtitle {
+  margin-top: calc(
+    -0.5 * var(--#{$prefix}card-title-spacer-y)
+  ); // stylelint-disable-line function-disallowed-list
+  margin-bottom: 0;
+  color: var(--#{$prefix}card-subtitle-color);
+
+  font-size: 80%;
+}
+
+@include dark-mode {
+  .base {
+    --#{$prefix}card-title-color: #{$card-title-color-dark};
+    --#{$prefix}card-subtitle-color: #{$card-subtitle-color-dark};
+  }
+}

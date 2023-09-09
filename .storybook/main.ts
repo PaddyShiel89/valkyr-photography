@@ -18,24 +18,14 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config) => {
     // @ts-ignore
-    config.module.rules[0] = {
-      test: /\.(js|mjs|jsx|ts|tsx)$/,
-      type: "javascript/auto",
+    config.module.rules[2].exclude = [/node_modules/];
+    // @ts-ignore
+    config.module.rules[2].exclude = [/core-js/];
 
-      // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
-      // Remove core-js to prevent issues with Storybook.
-      exclude: [/node_modules/, /core-js/],
-      use: [
-        {
-          loader: "babel-loader",
-          options: {
-            // Use `babel-plugin-remove-graphql-queries` to remove static
-            // queries from components when rendering in storybook.
-            plugins: [require.resolve("babel-plugin-remove-graphql-queries")],
-          },
-        },
-      ],
-    };
+    // @ts-ignore
+    config.module.rules[2].use[0].options.plugins.push([
+      require.resolve("babel-plugin-remove-graphql-queries"),
+    ]);
 
     // Prevent webpack from using Storybook CSS rules to process SCSS modules
     config.module?.rules?.map((rule) =>
@@ -96,16 +86,7 @@ const config: StorybookConfig = {
             // Loads CSS file with resolved imports and returns CSS code
             "css-loader",
             // Loads and compiles a SASS/SCSS file
-            {
-              loader: "sass-loader",
-              // only if you are using additional global variable
-              options: {
-                additionalData: "@import 'src/styles/global.scss';",
-                sassOptions: {
-                  includePaths: ["src/styles"],
-                },
-              },
-            },
+            "sass-loader",
           ],
         },
       ],
@@ -117,6 +98,9 @@ const config: StorybookConfig = {
       alias: {
         ...config.resolve?.alias,
         "@components": path.resolve(__dirname, "../src/components"),
+        "@helpers": path.resolve(__dirname, "../src/helpers/index.ts"),
+        "@styles": path.resolve(__dirname, "../src/styles"),
+        "@testing": path.resolve(__dirname, "../testing"),
       },
       mainFields: ["browser", "module", "main"],
     };
