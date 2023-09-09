@@ -87,6 +87,12 @@
   flex: 1 1 auto;
 }
 
+.footer {
+  a {
+    width: 100%;
+  }
+}
+
 .description {
   p:last-child {
     margin-bottom: 0;
@@ -106,15 +112,6 @@
   color: var(--#{$prefix}card-subtitle-color);
 
   font-size: 80%;
-}
-
-.footer {
-  display: flex;
-  margin-top: $spacer;
-
-  a {
-    width: 100%;
-  }
 }
 
 @include dark-mode {
