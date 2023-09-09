@@ -12,7 +12,6 @@ import { getModelsFromSanityPhotos } from "../../../helpers/sanity";
 const meta: Meta<typeof CardSpread> = {
   title: "Layouts/Card spread",
   component: CardSpread,
-  tags: ["autodocs"],
   parameters: {
     backgrounds: {
       default: "white",
