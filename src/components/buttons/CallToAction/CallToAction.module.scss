@@ -2,6 +2,7 @@
 @import "@styles/variables";
 
 .base {
+  --#{$prefix}btn-bg: #{$body-bg};
   @include button-outline-variant($black);
   @include button-size(
     $btn-padding-y,
@@ -22,6 +23,7 @@
 
 @include dark-mode {
   .base {
+    --#{$prefix}btn-bg: #{$body-bg-dark};
     @include button-outline-variant($white);
   }
 }
