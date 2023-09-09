@@ -28,14 +28,6 @@ type Story = StoryObj<typeof PhotosetCard>;
 // with the localhost domain, which must be running.
 
 export const Default: Story = {
-  render: (args) => {
-    return (
-      <div>
-        <PhotosetCard {...args} />
-      </div>
-    );
-  },
-
   args: {
     altTitle: "Set One",
     description:
