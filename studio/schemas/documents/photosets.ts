@@ -15,6 +15,13 @@ const photosets: SchemaTypeDefinition = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'altTitle',
+      type: 'string',
+      title: 'Alternative title',
+      description:
+        "An alternative title for the set. This is used in cases such as where all model names can't fit into a title.",
+    },
+    {
       name: 'date',
       type: 'date',
       title: 'Date',
