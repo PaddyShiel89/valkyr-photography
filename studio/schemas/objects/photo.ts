@@ -1,9 +1,9 @@
 import {SchemaTypeDefinition} from 'sanity'
 
 const photos: SchemaTypeDefinition = {
-  name: 'photos',
-  type: 'document',
-  title: 'Photos',
+  name: 'photo',
+  type: 'image',
+  title: 'Photo',
   fields: [
     {
       name: 'name',
@@ -13,13 +13,7 @@ const photos: SchemaTypeDefinition = {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'image',
-      type: 'image',
-      title: 'Image',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'alt',
+      name: 'altText',
       type: 'string',
       title: 'Alt text',
       description: 'The alt text used to describe the image.',

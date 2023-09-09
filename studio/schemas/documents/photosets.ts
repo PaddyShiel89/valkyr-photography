@@ -43,19 +43,13 @@ const photosets: SchemaTypeDefinition = {
     {
       name: 'photos',
       type: 'array',
+      of: [{type: 'photo'}],
       description: 'The photos in the photoset.',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'photos'}],
-        },
-      ],
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'featuredPhoto',
-      type: 'reference',
-      to: [{type: 'photos'}],
+      type: 'photo',
       description:
         "The photo that will be displayed as the photoset's feature image where appropriate.",
       validation: (Rule) => Rule.required(),
