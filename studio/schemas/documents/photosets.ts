@@ -8,7 +8,7 @@ const photosets: SchemaTypeDefinition = {
   icon: TfiGallery,
   fields: [
     {
-      name: 'models',
+      name: 'title',
       type: 'string',
       title: 'Title',
       description: 'The title of the photoset.',
@@ -28,7 +28,6 @@ const photosets: SchemaTypeDefinition = {
       title: 'Description',
       description:
         'A brief description of the photoset, no more than a couple of short paragraphs.',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'categories',
