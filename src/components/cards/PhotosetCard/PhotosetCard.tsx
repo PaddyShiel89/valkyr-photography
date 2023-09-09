@@ -7,7 +7,7 @@ import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink
 import {
   base as cBase,
   body as cBody,
-  ctaContainer as cCTAContainer,
+  footer as cFooter,
   description as cDescription,
   subtitle as cSubtitle,
   title as cTitle,
@@ -55,12 +55,12 @@ const PhotosetCard = ({
             <ReactMarkdown children={description} />
           </div>
         ) : null}
-        {slug ? (
-          <div className={cCTAContainer}>
-            <CallToAction to={slug}>{linkText}</CallToAction>
-          </div>
-        ) : null}
       </div>
+      {slug ? (
+        <div className={cFooter}>
+          <CallToAction to={slug}>{linkText}</CallToAction>
+        </div>
+      ) : null}
     </div>
   );
 };
