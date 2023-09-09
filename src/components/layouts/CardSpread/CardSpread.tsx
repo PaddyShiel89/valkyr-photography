@@ -15,7 +15,7 @@ const CardSpread = ({
     <section className={cBase}>
       {title ? <h2>{title}</h2> : null}
       <div className={classes} {...props} />
-      {callToAction ? <CallToAction {...callToAction} /> : null}
+      {callToAction ? <CallToAction {...callToAction} size="lg" /> : null}
     </section>
   );
 };

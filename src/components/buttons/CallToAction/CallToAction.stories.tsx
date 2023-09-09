@@ -9,6 +9,7 @@ const meta: Meta<typeof CallToAction> = {
     layout: "centered",
   },
   args: {
+    size: "md",
     to: "home",
   },
 };

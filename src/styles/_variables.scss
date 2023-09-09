@@ -46,6 +46,7 @@ $body-bg: $white;
 /* ------------------------------- Components ------------------------------- */
 
 $border-radius: 0;
+$border-radius-lg: 0;
 
 $section-padding-y: $spacer * 4;
 $section-padding-x: $spacer * 2;
@@ -57,6 +58,7 @@ $font-family-sans-serif: "Roboto", sans-serif;
 // Set 1rem to 10px
 $font-size-root: 62.5%;
 $font-size-base: 1.6rem;
+$font-size-lg: $font-size-base * 1.5;
 
 $headings-font-family: "Noto Serif", serif;
 $headings-color: $gray-900;
@@ -64,8 +66,11 @@ $subheadings-color: $gray-600;
 
 /* ----------------------------- Buttons + Forms ---------------------------- */
 
-$input-btn-padding-y-lg: math.div($spacer, 2);
-$input-btn-padding-x-lg: $spacer;
+$input-btn-padding-y: $spacer;
+$input-btn-padding-x: $spacer * 2;
+
+$input-btn-padding-y-lg: $spacer * 1.5;
+$input-btn-padding-x-lg: $spacer * 3;
 
 /* ---------------------------------- Cards --------------------------------- */
 

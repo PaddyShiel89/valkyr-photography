@@ -3,7 +3,21 @@
 
 .base {
   @include button-outline-variant($black);
-  @include button-size($spacer, $spacer, $font-size-base, 0);
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $btn-border-radius
+  );
+}
+
+.lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
 }
 
 @include dark-mode {
