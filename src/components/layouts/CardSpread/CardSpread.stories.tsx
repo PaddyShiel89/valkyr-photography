@@ -1,7 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Default as PhotosetCardStory } from "@components/cards/PhotosetCard/PhotosetCard.stories";
 import PhotosetCard, {
   PhotosetCardProps,
 } from "@components/cards/PhotosetCard/PhotosetCard";

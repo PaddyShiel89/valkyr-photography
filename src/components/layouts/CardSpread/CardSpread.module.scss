@@ -1,7 +1,18 @@
 @import "@styles/variables";
 
 .base {
+  padding: ($spacer * 4) ($spacer * 2);
+  background-color: $gray-100;
+}
+
+.inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(auto, 40rem));
   gap: $spacer;
+}
+
+@include dark-mode {
+  .base {
+    background-color: $gray-900;
+  }
 }

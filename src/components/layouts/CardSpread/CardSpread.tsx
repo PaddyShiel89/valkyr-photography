@@ -1,15 +1,18 @@
 import React from "react";
-import { base as cBase } from "./CardSpread.module.scss";
+import { base as cBase, inner as cInner } from "./CardSpread.module.scss";
 
-const CardSpread = (props: CardSpreadProps) => {
-  const classes = [cBase, props.className].join(" ");
-
-  return <section className={classes} {...props} />;
+const CardSpread = ({ className, ...props }: CardSpreadProps) => {
+  const classes = [cInner, className].join(" ");
+  return (
+    <section className={cBase}>
+      <div className={classes} {...props} />
+    </section>
+  );
 };
 
 export default CardSpread;
 
 type CardSpreadProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLElement>,
-  HTMLElement
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
 >;
