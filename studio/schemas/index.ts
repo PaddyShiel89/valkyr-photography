@@ -1,6 +1,6 @@
 import photo from './objects/photo'
+import models from './documents/models'
 
-import photoCategories from './documents/photoCategories'
 import photosets from './documents/photosets'
 
-export const schemaTypes = [photo, photoCategories, photosets]
+export const schemaTypes = [models, photo, photosets]

@@ -1,15 +1,17 @@
 import {SchemaTypeDefinition} from 'sanity'
+import {TfiGallery} from 'react-icons/tfi'
 
 const photosets: SchemaTypeDefinition = {
   name: 'photosets',
   type: 'document',
   title: 'Photosets',
+  icon: TfiGallery,
   fields: [
     {
       name: 'models',
       type: 'string',
-      title: 'Models',
-      description: 'The models pictured in the photoset. Also used as the title of the photoset.',
+      title: 'Title',
+      description: 'The title of the photoset.',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -31,27 +33,23 @@ const photosets: SchemaTypeDefinition = {
     {
       name: 'categories',
       type: 'array',
-      description: 'The categories that apply to the photoset.',
+      description: 'The media tags that apply to the photoset.',
       of: [
         {
           type: 'reference',
-          to: [{type: 'photoCategories'}],
+          to: [{type: 'media.tag'}],
         },
       ],
-      validation: (Rule) => Rule.required().unique(),
+      validation: (Rule) => Rule.unique(),
     },
     {
       name: 'photos',
       type: 'array',
       of: [{type: 'photo'}],
       description: 'The photos in the photoset.',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'featuredPhoto',
-      type: 'photo',
-      description:
-        "The photo that will be displayed as the photoset's feature image where appropriate.",
+      options: {
+        layout: 'grid',
+      },
       validation: (Rule) => Rule.required(),
     },
     {
