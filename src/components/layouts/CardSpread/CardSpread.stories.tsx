@@ -4,10 +4,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import PhotosetCard, {
   PhotosetCardProps,
 } from "@components/cards/PhotosetCard/PhotosetCard";
-import CardSpread from "./CardSpread";
-
 import { photosetCardQuery } from "@testing/data";
-import { getModelsFromSanityPhotos } from "../../../helpers/sanity";
+import { getModelsFromSanityPhotos } from "@helpers";
+import CardSpread from "./CardSpread";
 
 const meta: Meta<typeof CardSpread> = {
   title: "Layouts/Card spread",
