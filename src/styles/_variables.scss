@@ -27,6 +27,8 @@ $blue-700: shade-color($blue, 40%) !default;
 $blue-800: shade-color($blue, 60%) !default;
 $blue-900: shade-color($blue, 80%) !default;
 
+$charcoal: mix($gray-900, $black);
+
 /* --------------------------------- Options -------------------------------- */
 
 $prefix: "valkyr-";
@@ -44,6 +46,10 @@ $body-bg: $white;
 /* ------------------------------- Components ------------------------------- */
 
 $border-radius: 0;
+
+$section-padding-y: $spacer * 4;
+$section-padding-x: $spacer * 2;
+$section-color: $gray-100;
 
 /* ------------------------------- Typography ------------------------------- */
 

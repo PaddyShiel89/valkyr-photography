@@ -2,10 +2,15 @@
 @import "@styles/variables";
 
 .base {
+  --#{$prefix}card-spread-bg: #{$section-color};
+  --#{$prefix}card-spread-padding-y: #{$section-padding-y};
+  --#{$prefix}card-spread-padding-x: #{$section-padding-x};
+
   display: flex;
   justify-content: center;
-  padding: ($spacer * 4) ($spacer * 2);
-  background-color: $gray-100;
+  padding: var(--#{$prefix}card-spread-padding-y)
+    var(--#{$prefix}card-spread-padding-x);
+  background-color: var(--#{$prefix}card-spread-bg);
 }
 
 .inner {
@@ -26,6 +31,6 @@
 
 @include dark-mode {
   .base {
-    background-color: $gray-900;
+    --#{$prefix}card-spread-bg: #{$section-color-dark};
   }
 }
