@@ -2,6 +2,8 @@
 @import "@styles/variables";
 
 .base {
+  display: flex;
+  justify-content: center;
   padding: ($spacer * 4) ($spacer * 2);
   background-color: $gray-100;
 }
