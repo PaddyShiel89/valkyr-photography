@@ -10,8 +10,18 @@
 
 .inner {
   display: grid;
-  grid-template-columns: repeat(4, minmax(auto, 40rem));
+  grid-template-columns: minmax(auto, 60rem);
   gap: $spacer;
+
+  // 900px
+  @media (min-width: 56.25em) {
+    grid-template-columns: repeat(2, minmax(auto, 50rem));
+  }
+
+  // 1600px
+  @media (min-width: 100em) {
+    grid-template-columns: repeat(4, minmax(auto, 50rem));
+  }
 }
 
 @include dark-mode {
