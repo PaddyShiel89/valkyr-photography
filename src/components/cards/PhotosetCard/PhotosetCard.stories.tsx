@@ -26,42 +26,6 @@ type Story = StoryObj<typeof PhotosetCard>;
 
 // In order to get sources to work in Storybook, they must each be prepended
 // with the localhost domain, which must be running.
-const featuredPhoto = {
-  alt: "Blonde model Kelly Klein lying nearly nude on a kitchen counter.",
-  image: {
-    // @ts-ignore
-    asset: {
-      gatsbyImage: {
-        images: {
-          sources: [
-            {
-              srcSet:
-                "http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/ae687c5fddd7cc8168aac11710771c79/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D150%26h%3D100%26fm%3Davif%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 150w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/f4b17f8dc1144930f0555192c9266132/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D300%26h%3D200%26fm%3Davif%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 300w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/01ff160628fb8b3c202c038dfe631238/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D600%26h%3D400%26fm%3Davif%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 600w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/81640fe0ef6a64955048e6146b620440/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D1200%26h%3D800%26fm%3Davif%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 1200w",
-              type: "image/avif",
-              sizes: "(min-width: 400px) 400px, 100vw",
-            },
-            {
-              srcSet:
-                "http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/b7d6838ebcba1c8608bf591443451f3f/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D150%26h%3D100%26fm%3Dwebp%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 150w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/6f31d04fe6ec3b823d0453c785eeeb79/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D300%26h%3D200%26fm%3Dwebp%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 300w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/34bd4a37c3235152591f115f2e554b4d/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D600%26h%3D400%26fm%3Dwebp%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 600w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/7d0e5a9f983f72eb975f2ba295ad2870/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D1200%26h%3D800%26fm%3Dwebp%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 1200w",
-              type: "image/webp",
-              sizes: "(min-width: 400px) 400px, 100vw",
-            },
-          ],
-          fallback: {
-            src: "http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/02d1d5dea53e34dd43d94e0221a078b3/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D150%26h%3D100%26fm%3Djpg%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6",
-            srcSet:
-              "http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/02d1d5dea53e34dd43d94e0221a078b3/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D150%26h%3D100%26fm%3Djpg%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 150w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/e3ded4ddeba550c769e2a6ac679bebd8/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D300%26h%3D200%26fm%3Djpg%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 300w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/1efc21f9a65d70180bc57bc7ba906dd0/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D600%26h%3D400%26fm%3Djpg%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 600w,http://localhost:8000/_gatsby/image/8374cbbbb4281c884cf14ca8592105b0/a38003a83930eeb36c312862f8b9b269/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F753ee5670d791269d3b923c4983559a123a89d83-2500x1667.jpg&a=w%3D1200%26h%3D800%26fm%3Djpg%26q%3D100&cd=9e81a1bce61782671c85d562c80d70f6 1200w",
-            sizes: "(min-width: 400px) 400px, 100vw",
-          },
-        },
-        layout: "constrained",
-        width: 400,
-        height: (400 / 600) * 400,
-        backgroundColor: "rgb(184,168,168)",
-      },
-    },
-  },
-};
 
 export const Default: Story = {
   render: (args) => {
@@ -73,12 +37,43 @@ export const Default: Story = {
   },
 
   args: {
-    models: "Kelly Klein",
-    date: "2023-06-10",
+    altTitle: "Set One",
     description:
-      "A set from my second shoot with the gorgeous Kelly Klein.\n\nShe wore a lemon and orange set that looked incredible.",
-    // @ts-ignore
-    featuredPhoto,
+      "This set is from my second shoot with Kelly. She mentioned about shooting in these lemon-patterned knickers, and the combination of her styling and the set turned out really well. The feature image where Kelly is giving some serious lip action is one of my favourite shots I've ever taken.",
     slug: "kelly-klein-june-2023",
+    subtitle: "Lemons and Oranges",
+    featuredPhoto: {
+      altText:
+        "Blonde model Kelly Klein lies nearly nude on a kitchen counter, looking pensively away from the camera.",
+      gatsbyImage: {
+        images: {
+          sources: [
+            {
+              srcSet:
+                "http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/ae687c5fddd7cc8168aac11710771c79/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D150%26h%3D100%26fm%3Davif%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 150w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/f4b17f8dc1144930f0555192c9266132/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D300%26h%3D200%26fm%3Davif%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 300w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/01ff160628fb8b3c202c038dfe631238/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D600%26h%3D400%26fm%3Davif%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 600w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/81640fe0ef6a64955048e6146b620440/20230610-kelly-klein-0940.avif?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D1200%26h%3D800%26fm%3Davif%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 1200w",
+              type: "image/avif",
+              sizes: "(min-width: 600px) 600px, 100vw",
+            },
+            {
+              srcSet:
+                "http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/b7d6838ebcba1c8608bf591443451f3f/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D150%26h%3D100%26fm%3Dwebp%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 150w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/6f31d04fe6ec3b823d0453c785eeeb79/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D300%26h%3D200%26fm%3Dwebp%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 300w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/34bd4a37c3235152591f115f2e554b4d/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D600%26h%3D400%26fm%3Dwebp%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 600w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/7d0e5a9f983f72eb975f2ba295ad2870/20230610-kelly-klein-0940.webp?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D1200%26h%3D800%26fm%3Dwebp%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 1200w",
+              type: "image/webp",
+              sizes: "(min-width: 600px) 600px, 100vw",
+            },
+          ],
+          fallback: {
+            src: "http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/02d1d5dea53e34dd43d94e0221a078b3/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D150%26h%3D100%26fm%3Djpg%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4",
+            srcSet:
+              "http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/02d1d5dea53e34dd43d94e0221a078b3/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D150%26h%3D100%26fm%3Djpg%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 150w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/e3ded4ddeba550c769e2a6ac679bebd8/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D300%26h%3D200%26fm%3Djpg%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 300w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/1efc21f9a65d70180bc57bc7ba906dd0/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D600%26h%3D400%26fm%3Djpg%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 600w,http://localhost:8000/_gatsby/image/f5d796c9dbad0cc04d6f4ade299857a3/a38003a83930eeb36c312862f8b9b269/20230610-kelly-klein-0940.jpg?u=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Feg2qiiqf%2Fproduction%2F90b7cd56aa894cbfeea1cee11957f7d937314420-3840x2560.jpg&a=w%3D1200%26h%3D800%26fm%3Djpg%26q%3D100&cd=f561acf9b86533588bffd8b1461f26d4 1200w",
+            sizes: "(min-width: 600px) 600px, 100vw",
+          },
+        },
+        layout: "constrained",
+        width: 600,
+        height: 400,
+        backgroundColor: "rgb(184,168,168)",
+      },
+    },
+    models: ["Kelly Klein"],
   },
 };

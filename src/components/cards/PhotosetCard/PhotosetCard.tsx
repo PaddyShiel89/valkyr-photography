@@ -4,7 +4,6 @@ import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 
 import CallToAction from "@components/buttons/CallToAction/CallToAction";
 import ConditionalLink from "@components/helpers/ConditionalLink/ConditionalLink";
-import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 import {
   base as cBase,
   body as cBody,
@@ -15,31 +14,39 @@ import {
 } from "./PhotosetCard.module.scss";
 
 const PhotosetCard = ({
-  date,
+  altTitle,
   description,
   featuredPhoto,
   models,
   slug,
+  subtitle,
 }: PhotosetCardProps) => {
-  const month = getMonthFromSanityDate(date as string);
-  const year = getYearFromSanityDate(date as string);
-  const subtitle = month + " " + year;
+  /* -------------------------- GatsbyImage component ------------------------- */
 
   const imgData = getImage(
-    featuredPhoto?.image?.asset?.gatsbyImage || null
+    featuredPhoto?.gatsbyImage || null
   ) as IGatsbyImageData;
 
   const linkText = "Check out this photoset";
 
+  /* --------------------- Manage title using model names --------------------- */
+
+  let modelNamesAsTitle =
+    models?.length === 1
+      ? models[0] // For only one model, show the full name
+      : models?.length === 2
+      ? models.map((m) => m?.split(" ")[0]).join(" & ") // For two models, show their first names
+      : altTitle; // For more than two models, use the alternative title;
+
   return (
     <div className={cBase}>
       <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
-        <GatsbyImage alt={featuredPhoto?.alt || ""} image={imgData} />
+        <GatsbyImage alt={featuredPhoto.altText || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
         <h5>
           <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
-            <div className={cTitle}>{models}</div>
+            <div className={cTitle}>{modelNamesAsTitle}</div>
             <div className={cSubtitle}>{subtitle}</div>
           </ConditionalLink>
         </h5>
@@ -61,9 +68,13 @@ const PhotosetCard = ({
 export default PhotosetCard;
 
 export type PhotosetCardProps = {
-  date: Queries.SanityPhotosets["date"];
   description: Queries.SanityPhotosets["description"];
-  featuredPhoto: Queries.SanityPhotosets["featuredPhoto"];
-  models: Queries.SanityPhotosets["models"];
+  featuredPhoto: {
+    altText: Queries.SanityImageAsset["altText"];
+    gatsbyImage: Queries.SanityImageAsset["gatsbyImage"];
+  };
+  models: Queries.SanityModels["name"][];
   slug: Queries.SanityPhotosets["slug"];
+  subtitle: Queries.SanityPhotosets["title"];
+  altTitle?: Queries.SanityPhotosets["altTitle"];
 };
