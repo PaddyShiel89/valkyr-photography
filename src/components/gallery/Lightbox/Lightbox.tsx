@@ -28,10 +28,23 @@ const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
     }
   };
 
+  /** Handle clicking on the next image button. */
+  const handleNextButtonClick = () => {
+    console.log("Load next image");
+  };
+
+  /** Handle clicking on the previous image button. */
+  const handlePreviousButtonClick = () => {
+    console.log("Load previous image");
+  };
+
   return show ? (
     <>
       <div className={cBase} onClick={handleModalClick}>
         <div className={cInner}>
+          <button onClick={handlePreviousButtonClick} type="button">
+            Prev
+          </button>
           <div className={cContent}>
             <GatsbyImage
               alt={photo.altText || ""}
@@ -40,6 +53,9 @@ const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
               objectFit="contain"
             />
           </div>
+          <button onClick={handleNextButtonClick} type="button">
+            Next
+          </button>
         </div>
       </div>
       <div className={cBackdrop}></div>
