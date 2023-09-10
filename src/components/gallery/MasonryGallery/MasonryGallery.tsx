@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { base as cBase, item as cItem } from "./MasonryGallery.module.scss";
+import Lightbox from "../Lightbox/Lightbox";
 
 const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
@@ -21,11 +22,14 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
   const lightboxData = lightbox ? { clickHandler: handleItemClick } : undefined;
 
   return (
-    <ul className={cBase}>
-      {photosetData.map((p) => (
-        <MasonryGalleryItem lightbox={lightboxData} photo={p} />
-      ))}
-    </ul>
+    <>
+      <ul className={cBase}>
+        {photosetData.map((p) => (
+          <MasonryGalleryItem lightbox={lightboxData} photo={p} />
+        ))}
+      </ul>
+      <Lightbox setShowHandler={setLightboxOpen} show={lightboxOpen} />
+    </>
   );
 };
 

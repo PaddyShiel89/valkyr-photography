@@ -1,0 +1,16 @@
+.backdrop {
+  // scss-docs-start modal-backdrop-css-vars
+  --#{$prefix}backdrop-zindex: #{$zindex-modal-backdrop};
+  --#{$prefix}backdrop-bg: #{$modal-backdrop-bg};
+  --#{$prefix}backdrop-opacity: #{$modal-backdrop-opacity};
+  // scss-docs-end modal-backdrop-css-vars
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--#{$prefix}backdrop-zindex);
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--#{$prefix}backdrop-bg);
+  opacity: var(--#{$prefix}backdrop-opacity);
+}
