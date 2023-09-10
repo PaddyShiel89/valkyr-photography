@@ -1,3 +1,5 @@
+@import "@styles/mixins";
+
 .backdrop {
   // scss-docs-start modal-backdrop-css-vars
   --#{$prefix}backdrop-zindex: #{$zindex-modal-backdrop};
@@ -13,6 +15,12 @@
   height: 100vh;
   background-color: var(--#{$prefix}backdrop-bg);
   opacity: var(--#{$prefix}backdrop-opacity);
+}
+
+@include dark-mode {
+  .backdrop {
+    --#{$prefix}backdrop-bg: #{$modal-backdrop-bg-dark};
+  }
 }
 
 .base {
