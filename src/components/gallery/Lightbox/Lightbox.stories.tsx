@@ -1,4 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
+import { sanityPhotosets } from "@testing/data";
 import Lightbox from "./Lightbox";
 
 const meta: Meta<typeof Lightbox> = {
@@ -9,6 +12,11 @@ const meta: Meta<typeof Lightbox> = {
     layout: "fullscreen",
   },
   args: {
+    photo: {
+      altText: sanityPhotosets.photos[0].asset.altText,
+      gatsbyImage: sanityPhotosets.photos[0].asset
+        .gatsbyImage as IGatsbyImageData,
+    },
     setShowHandler: () => {},
     show: true,
   },

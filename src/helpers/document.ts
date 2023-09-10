@@ -1,12 +1,5 @@
-import React from "react";
-
 /** Get the width of a scrollbar in the window. */
 export const getScrollbarWidth = () => {
-  const didCompute = React.useRef(false);
-  const widthRef = React.useRef(0);
-
-  if (didCompute.current) return widthRef.current;
-
   // Creating invisible container
   const outer = document.createElement("div");
   outer.style.visibility = "hidden";
@@ -25,9 +18,6 @@ export const getScrollbarWidth = () => {
 
   // Removing temporary elements from the DOM
   outer.parentNode?.removeChild(outer);
-
-  didCompute.current = true;
-  widthRef.current = scrollbarWidth;
 
   return scrollbarWidth;
 };

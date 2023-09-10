@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
+
 import { getScrollbarWidth } from "@helpers";
 import {
   backdrop as cBackdrop,
@@ -7,7 +9,7 @@ import {
   inner as cInner,
 } from "./Lightbox.module.scss";
 
-const Lightbox = ({ setShowHandler, show }: LightboxProps) => {
+const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
   // Toggle the scrollbar
   document.body.style.overflowY = show ? "hidden" : "";
   document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
@@ -25,7 +27,12 @@ const Lightbox = ({ setShowHandler, show }: LightboxProps) => {
     <>
       <div className={cBase} onClick={handleModalClick}>
         <div className={cInner}>
-          <div className={cContent}>Image</div>
+          <div className={cContent}>
+            <GatsbyImage
+              alt={photo.altText || ""}
+              image={photo.gatsbyImage as IGatsbyImageData}
+            />
+          </div>
         </div>
       </div>
       <div className={cBackdrop}></div>
@@ -36,6 +43,7 @@ const Lightbox = ({ setShowHandler, show }: LightboxProps) => {
 export default Lightbox;
 
 type LightboxProps = {
+  photo: ValkyrPhoto;
   setShowHandler: React.Dispatch<React.SetStateAction<boolean>>;
   show: boolean;
 };

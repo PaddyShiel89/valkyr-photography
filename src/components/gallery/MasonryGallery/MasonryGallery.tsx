@@ -6,29 +6,40 @@ import Lightbox from "@components/gallery/Lightbox/Lightbox";
 const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
     const imgData = getImage(p.gatsbyImage) as IGatsbyImageData;
-    return { altText: p.altText, gatsbyImage: imgData, key: p.id };
+    return { altText: p.altText, gatsbyImage: imgData, id: p.id };
   });
 
   /* ------------------------------ Lightbox data ----------------------------- */
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState<ValkyrPhoto>(
+    photosetData[0]
+  );
 
   /** Handle clicking on an item in the gallery. */
-  const handleItemClick = () => {
-    console.log("open lightbox");
+  const handleItemClick = (photo: ValkyrPhoto) => {
+    setCurrentPhoto(photo);
     setLightboxOpen(true);
   };
-
-  const lightboxData = lightbox ? { clickHandler: handleItemClick } : undefined;
 
   return (
     <>
       <ul className={cBase}>
-        {photosetData.map((p) => (
-          <MasonryGalleryItem key={p.key} lightbox={lightboxData} photo={p} />
-        ))}
+        {photosetData.map((p) => {
+          const lightboxData = lightbox
+            ? { clickHandler: () => handleItemClick(p) }
+            : undefined;
+
+          return (
+            <MasonryGalleryItem key={p.id} lightbox={lightboxData} photo={p} />
+          );
+        })}
       </ul>
-      <Lightbox setShowHandler={setLightboxOpen} show={lightboxOpen} />
+      <Lightbox
+        photo={currentPhoto}
+        setShowHandler={setLightboxOpen}
+        show={lightboxOpen}
+      />
     </>
   );
 };
