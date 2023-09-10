@@ -25,9 +25,19 @@ const meta: Meta<typeof MasonryGallery> = {
 export default meta;
 type Story = StoryObj<typeof MasonryGallery>;
 
-export const Default: Story = {
+export const WithLightbox: Story = {
   args: {
     lightbox: true,
+    photos: sanityPhotosets.photos.map((p) => ({
+      altText: p.asset.altText,
+      gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
+    })),
+  },
+};
+
+export const WithoutLightbox: Story = {
+  args: {
+    lightbox: false,
     photos: sanityPhotosets.photos.map((p) => ({
       altText: p.asset.altText,
       gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
