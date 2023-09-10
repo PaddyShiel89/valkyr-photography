@@ -27,6 +27,7 @@ type Story = StoryObj<typeof MasonryGallery>;
 
 export const Default: Story = {
   args: {
+    lightbox: true,
     photos: sanityPhotosets.photos.map((p) => ({
       altText: p.asset.altText,
       gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
