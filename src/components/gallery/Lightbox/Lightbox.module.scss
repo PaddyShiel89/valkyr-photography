@@ -63,14 +63,18 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
   // counteract the pointer-events: none; in the .modal-dialog
   pointer-events: auto;
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
+
+  // Centre content
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .image {
   max-height: calc(100vh - var(--#{$prefix}modal-margin) * 2);
+  user-select: none;
 }
