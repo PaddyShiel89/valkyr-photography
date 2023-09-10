@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { getScrollbarWidth } from "@helpers";
@@ -12,8 +12,12 @@ import {
 
 const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
   // Toggle the scrollbar
-  document.body.style.overflowY = show ? "hidden" : "";
-  document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
+  useEffect(() => {
+    document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
+    return () => {
+      document.body.style.paddingRight = "";
+    };
+  }, [show]);
 
   /** Handle clicking on the modal element. */
   const handleModalClick = (e: React.MouseEvent) => {
