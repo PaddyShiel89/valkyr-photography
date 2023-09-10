@@ -20,4 +20,12 @@ $gallery-item-spacer: $spacer * 2;
 
 .item {
   margin-bottom: $gallery-item-spacer;
+
+  button {
+    display: inline-block;
+    padding: 0;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    border: none;
+  }
 }
