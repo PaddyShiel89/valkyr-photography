@@ -6,7 +6,7 @@ import Lightbox from "@components/gallery/Lightbox/Lightbox";
 const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
     const imgData = getImage(p.gatsbyImage) as IGatsbyImageData;
-    return { altText: p.altText, gatsbyImage: imgData };
+    return { altText: p.altText, gatsbyImage: imgData, key: p.id };
   });
 
   /* ------------------------------ Lightbox data ----------------------------- */
@@ -25,7 +25,7 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
     <>
       <ul className={cBase}>
         {photosetData.map((p) => (
-          <MasonryGalleryItem lightbox={lightboxData} photo={p} />
+          <MasonryGalleryItem key={p.key} lightbox={lightboxData} photo={p} />
         ))}
       </ul>
       <Lightbox setShowHandler={setLightboxOpen} show={lightboxOpen} />
@@ -37,7 +37,7 @@ export default MasonryGallery;
 
 type MasonryGalleryProps = {
   lightbox: boolean;
-  photos: MasonryGalleryItemProps["photo"][];
+  photos: (MasonryGalleryItemProps["photo"] & { id: string })[];
 };
 
 /* -------------------------------------------------------------------------- */

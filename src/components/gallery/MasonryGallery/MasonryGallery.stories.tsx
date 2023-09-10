@@ -13,6 +13,13 @@ const meta: Meta<typeof MasonryGallery> = {
     },
     layout: "centered",
   },
+  args: {
+    photos: sanityPhotosets.photos.map((p) => ({
+      altText: p.asset.altText,
+      gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
+      id: p._key,
+    })),
+  },
   argTypes: {
     photos: {
       table: {
@@ -28,19 +35,11 @@ type Story = StoryObj<typeof MasonryGallery>;
 export const WithLightbox: Story = {
   args: {
     lightbox: true,
-    photos: sanityPhotosets.photos.map((p) => ({
-      altText: p.asset.altText,
-      gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
-    })),
   },
 };
 
 export const WithoutLightbox: Story = {
   args: {
     lightbox: false,
-    photos: sanityPhotosets.photos.map((p) => ({
-      altText: p.asset.altText,
-      gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
-    })),
   },
 };
