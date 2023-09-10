@@ -6,6 +6,7 @@ import {
   backdrop as cBackdrop,
   base as cBase,
   content as cContent,
+  image as cImage,
   inner as cInner,
 } from "./Lightbox.module.scss";
 
@@ -30,7 +31,9 @@ const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
           <div className={cContent}>
             <GatsbyImage
               alt={photo.altText || ""}
+              className={cImage}
               image={photo.gatsbyImage as IGatsbyImageData}
+              objectFit="contain"
             />
           </div>
         </div>
