@@ -69,10 +69,7 @@ export default PhotosetCard;
 
 export type PhotosetCardProps = {
   description: Queries.SanityPhotosets["description"];
-  featuredPhoto: {
-    altText: Queries.SanityImageAsset["altText"];
-    gatsbyImage: Queries.SanityImageAsset["gatsbyImage"];
-  };
+  featuredPhoto: ValkyrPhoto;
   models: Queries.SanityModels["name"][];
   slug: Queries.SanityPhotosets["slug"];
   subtitle: Queries.SanityPhotosets["title"];

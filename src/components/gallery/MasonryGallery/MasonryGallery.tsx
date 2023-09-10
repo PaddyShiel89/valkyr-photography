@@ -37,7 +37,7 @@ export default MasonryGallery;
 
 type MasonryGalleryProps = {
   lightbox: boolean;
-  photos: (MasonryGalleryItemProps["photo"] & { id: string })[];
+  photos: ValkyrPhotoset;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -64,8 +64,5 @@ type MasonryGalleryItemProps = {
   lightbox?: {
     clickHandler: React.MouseEventHandler<HTMLButtonElement>;
   };
-  photo: {
-    altText: Queries.SanityImageAsset["altText"];
-    gatsbyImage: Queries.SanityImageAsset["gatsbyImage"];
-  };
+  photo: ValkyrPhoto;
 };
