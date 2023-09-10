@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
+import { base as cBase, item as cItem } from "./MasonryGallery.module.scss";
 
 const MasonryGallery = ({ photos }: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
@@ -8,11 +9,13 @@ const MasonryGallery = ({ photos }: MasonryGalleryProps) => {
   });
 
   return (
-    <div>
+    <ul className={cBase}>
       {photosetData.map((p) => (
-        <GatsbyImage alt={p.altText} image={p.gatsbyImage} />
+        <li className={cItem}>
+          <GatsbyImage alt={p.altText} image={p.gatsbyImage} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

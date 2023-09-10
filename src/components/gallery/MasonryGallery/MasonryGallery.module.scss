@@ -1,0 +1,23 @@
+@import "@styles/variables";
+
+$gallery-item-spacer: $spacer * 2;
+
+.base {
+  @include list-unstyled;
+  margin-bottom: 0;
+  padding: ($section-padding-y - $gallery-item-spacer) $section-padding-x
+    ($section-padding-y - $gallery-item-spacer * 2);
+
+  // Center the images
+  text-align: center;
+
+  // 900px
+  @media (min-width: 56.25em) {
+    columns: 2 40rem;
+    column-gap: $gallery-item-spacer;
+  }
+}
+
+.item {
+  margin-bottom: $gallery-item-spacer;
+}

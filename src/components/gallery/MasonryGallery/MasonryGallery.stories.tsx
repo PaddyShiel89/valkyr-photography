@@ -13,6 +13,13 @@ const meta: Meta<typeof MasonryGallery> = {
     },
     layout: "centered",
   },
+  argTypes: {
+    photos: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
 
 export default meta;
