@@ -20,6 +20,13 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
     setLightboxOpen(true);
   };
 
+  /** Handle loading the next image into the lightbox. */
+  const handleLoadNextImage = () => {
+    // If the current photo is the last in the array, set it to the first photo
+    // in the array. Otherwise, load the next photo.
+    setCurrentPhoto(currentPhoto === photos.length - 1 ? 0 : currentPhoto + 1);
+  };
+
   return (
     <>
       <ul className={cBase}>
@@ -34,7 +41,7 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
         })}
       </ul>
       <Lightbox
-        nextImageHandler={() => setCurrentPhoto(currentPhoto + 1)}
+        nextImageHandler={handleLoadNextImage}
         photo={photosetData[currentPhoto]}
         setShowHandler={setLightboxOpen}
         show={lightboxOpen}
