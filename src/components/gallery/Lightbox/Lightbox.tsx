@@ -13,6 +13,7 @@ import {
 const Lightbox = ({
   nextImageHandler,
   photo,
+  previousImageHandler,
   setShowHandler,
   show,
 }: LightboxProps) => {
@@ -37,8 +38,12 @@ const Lightbox = ({
     <>
       <div className={cBase} onClick={handleModalClick}>
         <div className={cInner}>
-          <button aria-label="Load the previous image" type="button">
-            Prev
+          <button
+            aria-label="Load the previous image"
+            onClick={previousImageHandler}
+            type="button"
+          >
+            Previous
           </button>
           <div className={cContent}>
             <GatsbyImage
@@ -68,6 +73,7 @@ export default Lightbox;
 type LightboxProps = {
   nextImageHandler: () => void;
   photo: ValkyrPhoto;
+  previousImageHandler: () => void;
   setShowHandler: React.Dispatch<React.SetStateAction<boolean>>;
   show: boolean;
 };
