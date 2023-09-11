@@ -12,6 +12,7 @@ const meta: Meta<typeof Lightbox> = {
     layout: "fullscreen",
   },
   args: {
+    nextImageHandler: () => {},
     photo: {
       altText: sanityPhotosets.photos[0].asset.altText,
       gatsbyImage: sanityPhotosets.photos[0].asset

@@ -10,7 +10,12 @@ import {
   inner as cInner,
 } from "./Lightbox.module.scss";
 
-const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
+const Lightbox = ({
+  nextImageHandler,
+  photo,
+  setShowHandler,
+  show,
+}: LightboxProps) => {
   // Toggle the scrollbar
   useEffect(() => {
     document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
@@ -28,32 +33,27 @@ const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
     }
   };
 
-  /** Handle clicking on the next image button. */
-  const handleNextButtonClick = () => {
-    console.log("Load next image");
-  };
-
-  /** Handle clicking on the previous image button. */
-  const handlePreviousButtonClick = () => {
-    console.log("Load previous image");
-  };
-
   return show ? (
     <>
       <div className={cBase} onClick={handleModalClick}>
         <div className={cInner}>
-          <button onClick={handlePreviousButtonClick} type="button">
+          <button aria-label="Load the previous image" type="button">
             Prev
           </button>
           <div className={cContent}>
             <GatsbyImage
               alt={photo.altText || ""}
               className={cImage}
+              data-testid="lightbox-image"
               image={photo.gatsbyImage as IGatsbyImageData}
               objectFit="contain"
             />
           </div>
-          <button onClick={handleNextButtonClick} type="button">
+          <button
+            aria-label="Load the next image"
+            onClick={nextImageHandler}
+            type="button"
+          >
             Next
           </button>
         </div>
@@ -66,6 +66,7 @@ const Lightbox = ({ photo, setShowHandler, show }: LightboxProps) => {
 export default Lightbox;
 
 type LightboxProps = {
+  nextImageHandler: () => void;
   photo: ValkyrPhoto;
   setShowHandler: React.Dispatch<React.SetStateAction<boolean>>;
   show: boolean;

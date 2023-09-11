@@ -12,22 +12,20 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
   /* ------------------------------ Lightbox data ----------------------------- */
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentPhoto, setCurrentPhoto] = useState<ValkyrPhoto>(
-    photosetData[0]
-  );
+  const [currentPhoto, setCurrentPhoto] = useState(0);
 
   /** Handle clicking on an item in the gallery. */
-  const handleItemClick = (photo: ValkyrPhoto) => {
-    setCurrentPhoto(photo);
+  const handleItemClick = (i: number) => {
+    setCurrentPhoto(i);
     setLightboxOpen(true);
   };
 
   return (
     <>
       <ul className={cBase}>
-        {photosetData.map((p) => {
+        {photosetData.map((p, i) => {
           const lightboxData = lightbox
-            ? { clickHandler: () => handleItemClick(p) }
+            ? { clickHandler: () => handleItemClick(i) }
             : undefined;
 
           return (
@@ -36,7 +34,8 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
         })}
       </ul>
       <Lightbox
-        photo={currentPhoto}
+        nextImageHandler={() => setCurrentPhoto(currentPhoto + 1)}
+        photo={photosetData[currentPhoto]}
         setShowHandler={setLightboxOpen}
         show={lightboxOpen}
       />
@@ -46,7 +45,7 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
 
 export default MasonryGallery;
 
-type MasonryGalleryProps = {
+export type MasonryGalleryProps = {
   lightbox: boolean;
   photos: ValkyrPhotoset;
 };
