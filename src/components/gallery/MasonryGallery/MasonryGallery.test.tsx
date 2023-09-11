@@ -15,6 +15,22 @@ const defaultProps: MasonryGalleryProps = {
   })),
 };
 
+describe("The MasonryGallery component", () => {
+  test("load the lightbox when clicking on an image buton", () => {
+    render(<MasonryGallery {...defaultProps} />);
+
+    // Get the first image button in the gallery and fire a click event.
+    const imgLink = screen.getAllByRole("button")[0];
+    fireEvent.click(imgLink);
+
+    // Get the image in the lightbox gallery
+    const lightboxImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(lightboxImage).toBeInTheDocument();
+  });
+});
+
 describe("The open Lightbox in the MasonryGallery component", () => {
   test("loads the next image in the array when clicking the `next` button.", () => {
     render(<MasonryGallery {...defaultProps} />);
