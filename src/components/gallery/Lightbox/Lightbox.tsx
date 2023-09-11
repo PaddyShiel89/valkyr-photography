@@ -17,15 +17,23 @@ const Lightbox = ({
   setShowHandler,
   show,
 }: LightboxProps) => {
-  // Toggle the scrollbar
+  // Keyboard event listeners
+  const changeImageOnKeyDown = (e: KeyboardEvent) => {
+    if (e.code === "ArrowRight") nextImageHandler();
+    else if (e.code === "ArrowLeft") previousImageHandler();
+  };
+
   useEffect(() => {
+    // Toggle the scrollbar
     document.body.style.overflowY = show ? "hidden" : "";
     document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
+    window.addEventListener("keydown", changeImageOnKeyDown);
     return () => {
       document.body.style.overflowY = "";
       document.body.style.paddingRight = "";
+      window.removeEventListener("keydown", changeImageOnKeyDown);
     };
-  }, [show]);
+  });
 
   /** Handle clicking on the modal element. */
   const handleModalClick = (e: React.MouseEvent) => {

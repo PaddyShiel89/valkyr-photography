@@ -132,4 +132,74 @@ describe("The open Lightbox in the MasonryGallery component", () => {
     expect(prevImage).toBeInTheDocument();
     expect(prevImage.alt).toBe(defaultProps.photos[finalImageIndex].altText);
   });
+
+  test("loads the next image in the array when pressing the right arrow key.", () => {
+    render(<MasonryGallery {...defaultProps} />);
+
+    // Get the first image button in the gallery and fire a click event.
+    const imgLink = screen.getAllByRole("button")[0];
+    fireEvent.click(imgLink);
+
+    // Get the initial image in the lightbox gallery
+    const initialImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(initialImage).toBeInTheDocument();
+    expect(initialImage.alt).toBe(defaultProps.photos[0].altText);
+
+    // Fire the right arrow keyboard key event
+    fireEvent.keyDown(document, { code: "ArrowRight" });
+
+    // Get the next image in the lightbox gallery
+    const nextImage = screen.getByTestId("lightbox-image") as HTMLImageElement;
+    expect(nextImage).toBeInTheDocument();
+    expect(nextImage.alt).toBe(defaultProps.photos[1].altText);
+
+    // Fire the right arrow keyboard key event again to ensure it works on
+    // multiple presses
+    fireEvent.keyDown(document, { code: "ArrowRight" });
+
+    // Get the next next image in the lightbox gallery
+    const nextNextImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(nextNextImage).toBeInTheDocument();
+    expect(nextNextImage.alt).toBe(defaultProps.photos[2].altText);
+  });
+
+  test("loads the previous image in the array when pressing the left arrow key.", () => {
+    render(<MasonryGallery {...defaultProps} />);
+
+    // Get the second image button in the gallery and fire a click event.
+    const imgLink = screen.getAllByRole("button")[1];
+    fireEvent.click(imgLink);
+
+    // Get the initial image in the lightbox gallery
+    const initialImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(initialImage).toBeInTheDocument();
+    expect(initialImage.alt).toBe(defaultProps.photos[1].altText);
+
+    // Fire the left arrow keyboard key event
+    fireEvent.keyDown(document, { code: "ArrowLeft" });
+
+    // Get the previous image in the lightbox gallery
+    const prevImage = screen.getByTestId("lightbox-image") as HTMLImageElement;
+    expect(prevImage).toBeInTheDocument();
+    expect(prevImage.alt).toBe(defaultProps.photos[0].altText);
+
+    // Fire the left arrow keyboard key event again to ensure it works on
+    // multiple presses
+    fireEvent.keyDown(document, { code: "ArrowLeft" });
+
+    // Get the previous previous image in the lightbox gallery
+    const prevPrevImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(prevPrevImage).toBeInTheDocument();
+    expect(prevPrevImage.alt).toBe(
+      defaultProps.photos[finalImageIndex].altText
+    );
+  });
 });
