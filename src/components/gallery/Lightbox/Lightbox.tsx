@@ -9,6 +9,8 @@ import {
   image as cImage,
   inner as cInner,
 } from "./Lightbox.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const Lightbox = ({
   nextImageHandler,
@@ -56,7 +58,13 @@ const Lightbox = ({
             onClick={previousImageHandler}
             type="button"
           >
-            Previous
+            <FontAwesomeIcon
+              icon={icon({
+                name: "chevron-left",
+                family: "sharp",
+                style: "solid",
+              })}
+            />
           </button>
           <div className={cContent}>
             <GatsbyImage
@@ -72,7 +80,13 @@ const Lightbox = ({
             onClick={nextImageHandler}
             type="button"
           >
-            Next
+            <FontAwesomeIcon
+              icon={icon({
+                name: "chevron-right",
+                family: "sharp",
+                style: "solid",
+              })}
+            />
           </button>
         </div>
       </div>

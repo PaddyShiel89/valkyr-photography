@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { base as cBase, item as cItem } from "./MasonryGallery.module.scss";
 import Lightbox from "@components/gallery/Lightbox/Lightbox";
