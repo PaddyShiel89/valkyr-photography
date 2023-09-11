@@ -22,6 +22,7 @@ const Lightbox = ({
     if (!e.repeat) {
       if (e.code === "ArrowRight") nextImageHandler();
       else if (e.code === "ArrowLeft") previousImageHandler();
+      else if (e.code === "Escape") setShowHandler(false);
     }
   };
 

@@ -226,4 +226,24 @@ describe("The open Lightbox in the MasonryGallery component", () => {
     expect(nextImage).toBeInTheDocument();
     expect(nextImage.alt).toBe(defaultProps.photos[0].altText);
   });
+
+  test("closes on pressing the `Escape` keyboard button", () => {
+    render(<MasonryGallery {...defaultProps} />);
+
+    // Get the first image button in the gallery and fire a click event.
+    const imgLink = screen.getAllByRole("button")[0];
+    fireEvent.click(imgLink);
+
+    // Get the initial image in the lightbox gallery
+    const initialImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(initialImage).toBeInTheDocument();
+
+    // Fire the escape keyboard key event.
+    fireEvent.keyDown(window, { code: "Escape" });
+
+    // Expect the lightbox to have closed
+    expect(initialImage).not.toBeInTheDocument();
+  });
 });
