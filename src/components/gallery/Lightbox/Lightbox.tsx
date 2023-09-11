@@ -19,8 +19,10 @@ const Lightbox = ({
 }: LightboxProps) => {
   // Keyboard event listeners
   const changeImageOnKeyDown = (e: KeyboardEvent) => {
-    if (e.code === "ArrowRight") nextImageHandler();
-    else if (e.code === "ArrowLeft") previousImageHandler();
+    if (!e.repeat) {
+      if (e.code === "ArrowRight") nextImageHandler();
+      else if (e.code === "ArrowLeft") previousImageHandler();
+    }
   };
 
   useEffect(() => {

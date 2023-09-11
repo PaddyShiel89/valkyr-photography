@@ -1,6 +1,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 
 import MasonryGallery, { MasonryGalleryProps } from "./MasonryGallery";
 import { sanityPhotosets } from "@testing/data";
@@ -148,7 +149,7 @@ describe("The open Lightbox in the MasonryGallery component", () => {
     expect(initialImage.alt).toBe(defaultProps.photos[0].altText);
 
     // Fire the right arrow keyboard key event
-    fireEvent.keyDown(document, { code: "ArrowRight" });
+    fireEvent.keyDown(window, { code: "ArrowRight" });
 
     // Get the next image in the lightbox gallery
     const nextImage = screen.getByTestId("lightbox-image") as HTMLImageElement;
@@ -157,7 +158,7 @@ describe("The open Lightbox in the MasonryGallery component", () => {
 
     // Fire the right arrow keyboard key event again to ensure it works on
     // multiple presses
-    fireEvent.keyDown(document, { code: "ArrowRight" });
+    fireEvent.keyDown(window, { code: "ArrowRight" });
 
     // Get the next next image in the lightbox gallery
     const nextNextImage = screen.getByTestId(
@@ -182,7 +183,7 @@ describe("The open Lightbox in the MasonryGallery component", () => {
     expect(initialImage.alt).toBe(defaultProps.photos[1].altText);
 
     // Fire the left arrow keyboard key event
-    fireEvent.keyDown(document, { code: "ArrowLeft" });
+    fireEvent.keyDown(window, { code: "ArrowLeft" });
 
     // Get the previous image in the lightbox gallery
     const prevImage = screen.getByTestId("lightbox-image") as HTMLImageElement;
@@ -191,7 +192,7 @@ describe("The open Lightbox in the MasonryGallery component", () => {
 
     // Fire the left arrow keyboard key event again to ensure it works on
     // multiple presses
-    fireEvent.keyDown(document, { code: "ArrowLeft" });
+    fireEvent.keyDown(window, { code: "ArrowLeft" });
 
     // Get the previous previous image in the lightbox gallery
     const prevPrevImage = screen.getByTestId(
@@ -201,5 +202,28 @@ describe("The open Lightbox in the MasonryGallery component", () => {
     expect(prevPrevImage.alt).toBe(
       defaultProps.photos[finalImageIndex].altText
     );
+  });
+
+  test("does not load further images if an arrow key is held down.", () => {
+    render(<MasonryGallery {...defaultProps} />);
+
+    // Get the first image button in the gallery and fire a click event.
+    const imgLink = screen.getAllByRole("button")[0];
+    fireEvent.click(imgLink);
+
+    // Get the initial image in the lightbox gallery
+    const initialImage = screen.getByTestId(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    expect(initialImage).toBeInTheDocument();
+    expect(initialImage.alt).toBe(defaultProps.photos[0].altText);
+
+    // Fire the right arrow keyboard key event, simulating it as a repeated hold.
+    fireEvent.keyDown(window, { code: "ArrowRight", repeat: true });
+
+    // Get the image in the lightbox gallery and expect it to still be the first image
+    const nextImage = screen.getByTestId("lightbox-image") as HTMLImageElement;
+    expect(nextImage).toBeInTheDocument();
+    expect(nextImage.alt).toBe(defaultProps.photos[0].altText);
   });
 });
