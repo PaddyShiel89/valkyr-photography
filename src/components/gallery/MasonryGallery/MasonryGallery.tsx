@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { base as cBase, item as cItem } from "./MasonryGallery.module.scss";
 import Lightbox from "@components/gallery/Lightbox/Lightbox";
@@ -39,7 +39,7 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
       <ul className={cBase}>
         {photosetData.map((p, i) => {
           const lightboxData = lightbox
-            ? { clickHandler: () => handleItemClick(i) }
+            ? { clickHandler: () => handleItemClick(i), isOpen: lightboxOpen }
             : undefined;
 
           return (
@@ -77,6 +77,7 @@ const MasonryGalleryItem = ({ lightbox, photo }: MasonryGalleryItemProps) => {
       <button
         aria-label="Open this image in fullscreen"
         onClick={lightbox.clickHandler}
+        tabIndex={lightbox.isOpen ? -1 : undefined}
         type="button"
       >
         <GatsbyImage alt={photo.altText || ""} image={imgData} />
@@ -92,6 +93,7 @@ const MasonryGalleryItem = ({ lightbox, photo }: MasonryGalleryItemProps) => {
 type MasonryGalleryItemProps = {
   lightbox?: {
     clickHandler: React.MouseEventHandler<HTMLButtonElement>;
+    isOpen: boolean;
   };
   photo: ValkyrPhoto;
 };
