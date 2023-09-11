@@ -19,8 +19,10 @@ const Lightbox = ({
 }: LightboxProps) => {
   // Toggle the scrollbar
   useEffect(() => {
+    document.body.style.overflowY = show ? "hidden" : "";
     document.body.style.paddingRight = show ? getScrollbarWidth() + "px" : "";
     return () => {
+      document.body.style.overflowY = "";
       document.body.style.paddingRight = "";
     };
   }, [show]);
