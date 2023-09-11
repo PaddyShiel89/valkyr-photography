@@ -74,7 +74,11 @@ const MasonryGalleryItem = ({ lightbox, photo }: MasonryGalleryItemProps) => {
 
   return lightbox ? (
     <li className={cItem}>
-      <button onClick={lightbox.clickHandler} type="button">
+      <button
+        aria-label="Open this image in fullscreen"
+        onClick={lightbox.clickHandler}
+        type="button"
+      >
         <GatsbyImage alt={photo.altText || ""} image={imgData} />
       </button>
     </li>
