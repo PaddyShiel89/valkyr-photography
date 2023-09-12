@@ -67,7 +67,52 @@
   }
 
   button {
+    --#{$prefix}lightbox-btn-line-height: #{$btn-line-height};
+    --#{$prefix}lightbox-btn-color: #{$gray-500};
+    --#{$prefix}lightbox-hover-btn-color: #{$charcoal};
+
+    display: inline-block;
+    line-height: var(--#{$prefix}btn-line-height);
+    color: var(--#{$prefix}lightbox-btn-color);
+    text-align: center;
+    white-space: $btn-white-space;
+    vertical-align: middle;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    @include transition($btn-transition);
+    border: 0;
+    background-color: transparent;
+    padding: $spacer;
+    @include font-size(3rem);
+
     pointer-events: auto;
+
+    &:hover {
+      color: var(--#{$prefix}lightbox-hover-btn-color);
+    }
+
+    &:focus-visible {
+      @if $enable-shadows {
+        box-shadow: var(--#{$prefix}btn-box-shadow),
+          var(--#{$prefix}btn-focus-box-shadow);
+      } @else {
+        box-shadow: var(--#{$prefix}btn-focus-box-shadow);
+      }
+    }
+
+    @media (min-width: 50em) {
+      @include font-size(4rem);
+      padding: $spacer * 1.5;
+    }
+  }
+}
+
+@include dark-mode {
+  .inner {
+    button {
+      --#{$prefix}lightbox-btn-color: #{$gray-600};
+      --#{$prefix}lightbox-hover-btn-color: #{$gray-100};
+    }
   }
 }
 
