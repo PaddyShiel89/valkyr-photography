@@ -68,8 +68,7 @@
 
   button {
     --#{$prefix}lightbox-btn-line-height: #{$btn-line-height};
-    --#{$prefix}lightbox-btn-color: #{$gray-500};
-    --#{$prefix}lightbox-hover-btn-color: #{$charcoal};
+    --#{$prefix}lightbox-btn-color: #{$gray-700};
 
     display: inline-block;
     line-height: var(--#{$prefix}btn-line-height);
@@ -79,16 +78,17 @@
     vertical-align: middle;
     cursor: if($enable-button-pointers, pointer, null);
     user-select: none;
-    @include transition($btn-transition);
+    @include transition($transition-fade);
     border: 0;
     background-color: transparent;
     padding: $spacer;
     @include font-size(3rem);
+    opacity: 0.3;
 
     pointer-events: auto;
 
     &:hover {
-      color: var(--#{$prefix}lightbox-hover-btn-color);
+      opacity: 1;
     }
 
     &:focus-visible {
@@ -110,8 +110,7 @@
 @include dark-mode {
   .inner {
     button {
-      --#{$prefix}lightbox-btn-color: #{$gray-600};
-      --#{$prefix}lightbox-hover-btn-color: #{$gray-100};
+      --#{$prefix}lightbox-btn-color: #{$gray-300};
     }
   }
 }
