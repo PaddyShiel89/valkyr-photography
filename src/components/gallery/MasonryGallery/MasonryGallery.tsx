@@ -3,7 +3,11 @@ import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { base as cBase, item as cItem } from "./MasonryGallery.module.scss";
 import Lightbox from "@components/gallery/Lightbox/Lightbox";
 
-const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
+const MasonryGallery = ({
+  lightbox,
+  photos,
+  lightboxID,
+}: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
     const imgData = getImage(p.gatsbyImage) as IGatsbyImageData;
     return { altText: p.altText, gatsbyImage: imgData, id: p.id };
@@ -39,7 +43,10 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
       <ul className={cBase}>
         {photosetData.map((p, i) => {
           const lightboxData = lightbox
-            ? { clickHandler: () => handleItemClick(i), isOpen: lightboxOpen }
+            ? {
+                clickHandler: () => handleItemClick(i),
+                isOpen: lightboxOpen,
+              }
             : undefined;
 
           return (
@@ -47,23 +54,39 @@ const MasonryGallery = ({ lightbox, photos }: MasonryGalleryProps) => {
           );
         })}
       </ul>
-      <Lightbox
-        nextImageHandler={handleLoadNextImage}
-        photo={photosetData[currentPhoto]}
-        previousImageHandler={handleLoadPreviousImage}
-        setShowHandler={setLightboxOpen}
-        show={lightboxOpen}
-      />
+      {lightbox ? (
+        <Lightbox
+          id={lightboxID}
+          nextImageHandler={handleLoadNextImage}
+          photo={photosetData[currentPhoto]}
+          previousImageHandler={handleLoadPreviousImage}
+          setShowHandler={setLightboxOpen}
+          show={lightboxOpen}
+        />
+      ) : null}
     </>
   );
 };
 
 export default MasonryGallery;
 
-export type MasonryGalleryProps = {
-  lightbox: boolean;
+interface MasonryGallerySharedProps {
   photos: ValkyrPhotoset;
+}
+
+type MasonryGalleryWithLightboxProps = MasonryGallerySharedProps & {
+  lightbox: true;
+  lightboxID: string;
 };
+
+type MasonryGalleryWithoutLightboxProps = MasonryGallerySharedProps & {
+  lightbox: false;
+  lightboxID: undefined;
+};
+
+export type MasonryGalleryProps =
+  | MasonryGalleryWithLightboxProps
+  | MasonryGalleryWithoutLightboxProps;
 
 /* -------------------------------------------------------------------------- */
 /*                        Mason Gallery item component                        */

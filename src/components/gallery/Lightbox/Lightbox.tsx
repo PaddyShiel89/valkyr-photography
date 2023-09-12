@@ -14,6 +14,7 @@ import {
 } from "./Lightbox.module.scss";
 
 const Lightbox = ({
+  id,
   nextImageHandler,
   photo,
   previousImageHandler,
@@ -52,9 +53,10 @@ const Lightbox = ({
 
   return show ? (
     <>
-      <div className={cBase} onClick={handleModalClick}>
+      <div className={cBase} id={id} onClick={handleModalClick}>
         <div className={cInner}>
           <button
+            aria-controls={id}
             aria-label="Close fullscreen mode"
             className={cCloseButton}
             onClick={() => setShowHandler(false)}
@@ -69,6 +71,7 @@ const Lightbox = ({
             />
           </button>
           <button
+            aria-controls={id}
             aria-label="Load the previous image"
             onClick={previousImageHandler}
             type="button"
@@ -91,6 +94,7 @@ const Lightbox = ({
             />
           </div>
           <button
+            aria-controls={id}
             aria-label="Load the next image"
             onClick={nextImageHandler}
             type="button"
@@ -113,6 +117,7 @@ const Lightbox = ({
 export default Lightbox;
 
 type LightboxProps = {
+  id: string;
   nextImageHandler: () => void;
   photo: ValkyrPhoto;
   previousImageHandler: () => void;
