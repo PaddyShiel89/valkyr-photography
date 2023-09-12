@@ -12,18 +12,18 @@ const meta: Meta<typeof Lightbox> = {
     layout: "fullscreen",
   },
   args: {
-    nextImageHandler: () => {},
     photo: {
       altText: sanityPhotosets.photos[0].asset.altText,
       gatsbyImage: sanityPhotosets.photos[0].asset
         .gatsbyImage as IGatsbyImageData,
     },
-    setShowHandler: () => {},
     show: true,
   },
   argTypes: {
+    nextImageHandler: { action: "Load the next image" },
+    previousImageHandler: { action: "Load the previous image" },
     setShowHandler: {
-      table: { disable: true },
+      action: "Toggle the lightbox on/off",
     },
   },
 };
