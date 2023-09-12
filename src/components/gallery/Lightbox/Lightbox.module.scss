@@ -17,12 +17,6 @@
   opacity: var(--#{$prefix}backdrop-opacity);
 }
 
-@include dark-mode {
-  .backdrop {
-    --#{$prefix}backdrop-bg: #{$modal-backdrop-bg-dark};
-  }
-}
-
 .base {
   --#{$prefix}modal-zindex: #{$zindex-modal};
   --#{$prefix}modal-margin: #{$modal-dialog-margin};
@@ -50,7 +44,7 @@
 .inner {
   position: relative;
   width: auto;
-  margin: var(--#{$prefix}modal-margin);
+  // margin: var(--#{$prefix}modal-margin);
   // allow clicks to pass through for custom click handling to close modal
   pointer-events: none;
 
@@ -58,13 +52,8 @@
 
   display: flex;
   align-items: center;
-  min-height: calc(100% - var(--#{$prefix}modal-margin) * 2);
-
-  @media (min-width: 56.25em) {
-    max-width: var(--#{$prefix}modal-width);
-    margin-right: auto;
-    margin-left: auto;
-  }
+  // min-height: calc(100% - var(--#{$prefix}modal-margin) * 2);
+  height: 100%;
 
   button {
     --#{$prefix}lightbox-btn-line-height: #{$btn-line-height};
@@ -87,6 +76,14 @@
 
     pointer-events: auto;
 
+    &.closeButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      line-height: 0;
+    }
+
     &:hover {
       opacity: 1;
     }
@@ -100,17 +97,10 @@
       }
     }
 
+    // 800px
     @media (min-width: 50em) {
       @include font-size(4rem);
       padding: $spacer * 1.5;
-    }
-  }
-}
-
-@include dark-mode {
-  .inner {
-    button {
-      --#{$prefix}lightbox-btn-color: #{$gray-300};
     }
   }
 }
@@ -133,4 +123,16 @@
 .image {
   max-height: calc(100vh - var(--#{$prefix}modal-margin) * 2);
   user-select: none;
+}
+
+@include dark-mode {
+  .backdrop {
+    --#{$prefix}backdrop-bg: #{$modal-backdrop-bg-dark};
+  }
+
+  .inner {
+    button {
+      --#{$prefix}lightbox-btn-color: #{$gray-300};
+    }
+  }
 }

@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 import { getScrollbarWidth } from "@helpers";
 import {
   backdrop as cBackdrop,
   base as cBase,
   content as cContent,
+  closeButton as cCloseButton,
   image as cImage,
   inner as cInner,
 } from "./Lightbox.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const Lightbox = ({
   nextImageHandler,
@@ -53,6 +54,20 @@ const Lightbox = ({
     <>
       <div className={cBase} onClick={handleModalClick}>
         <div className={cInner}>
+          <button
+            aria-label="Close fullscreen mode"
+            className={cCloseButton}
+            onClick={() => setShowHandler(false)}
+            type="button"
+          >
+            <FontAwesomeIcon
+              icon={icon({
+                name: "xmark",
+                family: "sharp",
+                style: "solid",
+              })}
+            />
+          </button>
           <button
             aria-label="Load the previous image"
             onClick={previousImageHandler}
