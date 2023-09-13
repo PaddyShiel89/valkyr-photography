@@ -45,10 +45,8 @@ const PhotosetCard = ({
       </ConditionalLink>
       <div className={cBody}>
         <h3>
-          <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
-            <div className={cTitle}>{modelNamesAsTitle}</div>
-            <div className={cSubtitle}>{subtitle}</div>
-          </ConditionalLink>
+          <div className={cTitle}>{modelNamesAsTitle}</div>
+          <div className={cSubtitle}>{subtitle}</div>
         </h3>
         {!!description ? (
           <div className={cDescription}>
