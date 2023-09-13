@@ -1,11 +1,11 @@
 import {SchemaTypeDefinition} from 'sanity'
-import {IoWoman} from 'react-icons/io5'
+import {FaPersonDress} from 'react-icons/fa6'
 
 const model: SchemaTypeDefinition = {
   name: 'models',
   type: 'document',
   title: 'Models',
-  icon: IoWoman,
+  icon: FaPersonDress,
   fields: [
     {
       name: 'name',

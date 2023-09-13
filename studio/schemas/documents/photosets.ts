@@ -1,11 +1,11 @@
 import {SchemaTypeDefinition} from 'sanity'
-import {TfiGallery} from 'react-icons/tfi'
+import {FaImages} from 'react-icons/fa6'
 
 const photosets: SchemaTypeDefinition = {
   name: 'photosets',
   type: 'document',
   title: 'Photosets',
-  icon: TfiGallery,
+  icon: FaImages,
   fields: [
     {
       name: 'title',

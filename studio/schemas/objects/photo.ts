@@ -27,8 +27,12 @@ const photos: SchemaTypeDefinition = {
       // Only show this option if it hasn't previously been selected on a
       // different image.
       hidden: ({document, value}) => {
-        const photos = document?.photos as any[]
-        return !value && !!photos.find((p: {featuredImage: boolean}) => p.featuredImage)
+        if (document?.photos) {
+          const photos = document?.photos as any[]
+          return !value && !!photos.find((p: {featuredImage: boolean}) => p.featuredImage)
+        } else {
+          return true
+        }
       },
     },
   ],

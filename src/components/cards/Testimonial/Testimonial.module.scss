@@ -1,0 +1,96 @@
+@import "@styles/variables";
+
+.base {
+  // scss-docs-start card-css-vars
+  --#{$prefix}testimonial-spacer-y: #{$card-spacer-y};
+  --#{$prefix}testimonial-spacer-x: #{$card-spacer-x};
+  --#{$prefix}testimonial-title-spacer-y: #{$card-title-spacer-y};
+  --#{$prefix}testimonial-title-color: #{$card-title-color};
+  --#{$prefix}testimonial-subtitle-color: #{$card-subtitle-color};
+  --#{$prefix}testimonial-border-width: #{$card-border-width};
+  --#{$prefix}testimonial-border-color: #{$card-border-color};
+  --#{$prefix}testimonial-border-radius: #{$card-border-radius};
+  --#{$prefix}testimonial-box-shadow: #{$card-box-shadow};
+  --#{$prefix}testimonial-inner-border-radius: #{$card-inner-border-radius};
+  --#{$prefix}testimonial-height: #{$card-height};
+  --#{$prefix}testimonial-bg: #{$card-bg};
+  --#{$prefix}testimonial-image-width: #{$testimonial-image-size};
+  --#{$prefix}testimonial-image-border: 1rem solid;
+  --#{$prefix}testimonial-image-border-color: #{$gray-100};
+  // scss-docs-end card-css-vars
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  height: var(--#{$prefix}testimonial-height);
+  color: var(--#{$prefix}body-color);
+  word-wrap: break-word;
+  background-color: transparent;
+  background-clip: border-box;
+  border: var(--#{$prefix}testimonial-border-width) solid
+    var(--#{$prefix}testimonial-border-color);
+  @include border-radius(var(--#{$prefix}testimonial-border-radius));
+}
+
+.inner {
+  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body,
+.footer {
+  color: var(--#{$prefix}testimonial-color);
+  background-color: var(--#{$prefix}testimonial-bg);
+}
+
+.image {
+  margin-bottom: calc(var(--#{$prefix}testimonial-image-width) / -2);
+
+  display: flex;
+  justify-content: center;
+
+  img {
+    border-radius: 50%;
+    border: var(--#{$prefix}testimonial-image-border)
+      var(--#{$prefix}testimonial-image-border-color);
+  }
+}
+
+.body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: calc(
+      var(--#{$prefix}testimonial-image-width) / 2 +
+        var(--#{$prefix}testimonial-spacer-y)
+    )
+    var(--#{$prefix}testimonial-spacer-x) var(--#{$prefix}testimonial-spacer-y);
+}
+
+.footer {
+  padding: 0 var(--#{$prefix}testimonial-spacer-x)
+    var(--#{$prefix}testimonial-spacer-y);
+
+  font-family: $headings-font-family;
+  text-align: right;
+}
+
+.name {
+  color: var(--#{$prefix}testimonial-title-color);
+}
+
+.date {
+  color: var(--#{$prefix}testimonial-subtitle-color);
+  font-size: 80%;
+}
+
+@include dark-mode {
+  .base {
+    --#{$prefix}testimonial-title-color: #{$card-title-color-dark};
+    --#{$prefix}testimonial-subtitle-color: #{$card-subtitle-color-dark};
+    --#{$prefix}testimonial-image-border-color: #{$charcoal};
+  }
+}

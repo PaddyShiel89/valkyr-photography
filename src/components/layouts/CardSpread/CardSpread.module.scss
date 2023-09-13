@@ -26,6 +26,7 @@
   display: grid;
   grid-template-columns: minmax(auto, 60rem);
   gap: $spacer;
+  row-gap: $spacer * 2;
 
   // 900px
   @media (min-width: 56.25em) {
