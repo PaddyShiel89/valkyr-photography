@@ -51,6 +51,16 @@ const Lightbox = ({
     }
   };
 
+  // Set a responsive max width to ensure that the size of the image box is the
+  // same as the actual image. This stops letterboxing with `objectFit: contain`
+  // which stops clicks from passing through to close the  lightbox when the
+  // click is too close to the edge of the image at smaller screen sizes.
+  const aspectRatio =
+    ((photo.gatsbyImage?.width as number) /
+      (photo.gatsbyImage?.height as number)) *
+    100;
+  const responsiveMaxWidth = `calc( ${aspectRatio}vh - var(--valkyr-modal-margin) * 2)`;
+
   return show ? (
     <>
       <div className={cBase} id={id} onClick={handleModalClick}>
@@ -84,13 +94,12 @@ const Lightbox = ({
               })}
             />
           </button>
-          <div className={cContent}>
+          <div className={cContent} style={{ maxWidth: responsiveMaxWidth }}>
             <GatsbyImage
               alt={photo.altText || ""}
               className={cImage}
               data-testid="lightbox-image"
               image={photo.gatsbyImage as IGatsbyImageData}
-              objectFit="contain"
             />
           </div>
           <button
