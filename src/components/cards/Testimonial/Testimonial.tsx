@@ -1,15 +1,31 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { base as cBase, body as cBody } from "./Testimonial.module.scss";
+import {
+  base as cBase,
+  body as cBody,
+  date as cDate,
+  footer as cFooter,
+  name as cName,
+} from "./Testimonial.module.scss";
+import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
 
-const Testimonial = (props: TestimonialProps) => {
+const Testimonial = ({ date, ...props }: TestimonialProps) => {
+  const month = getMonthFromSanityDate(date || "");
+  const year = getYearFromSanityDate(date || "");
+
   return (
     <div className={cBase}>
       <div>Img</div>
       <ReactMarkdown className={cBody} children={props.quote || ""} />
-      <div>Name</div>
-      <div>Month YYYY</div>
+      <div className={cFooter}>
+        <div className={cName}>
+          {"\u2014"} {props.name}
+        </div>
+        <div className={cDate}>
+          {month} {year}
+        </div>
+      </div>
     </div>
   );
 };

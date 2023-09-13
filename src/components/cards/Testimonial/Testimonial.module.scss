@@ -33,8 +33,6 @@
 
 .body,
 .footer {
-  padding: var(--#{$prefix}testimonial-spacer-y)
-    var(--#{$prefix}testimonial-spacer-x);
   color: var(--#{$prefix}testimonial-color);
 }
 
@@ -42,4 +40,23 @@
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
+  padding: var(--#{$prefix}testimonial-spacer-y)
+    var(--#{$prefix}testimonial-spacer-x);
+}
+
+.footer {
+  padding: 0 var(--#{$prefix}testimonial-spacer-x)
+    var(--#{$prefix}testimonial-spacer-y);
+
+  font-family: $headings-font-family;
+  text-align: right;
+}
+
+.name {
+  color: var(--#{$prefix}card-title-color);
+}
+
+.date {
+  color: var(--#{$prefix}testimonial-subtitle-color);
+  font-size: 80%;
 }
