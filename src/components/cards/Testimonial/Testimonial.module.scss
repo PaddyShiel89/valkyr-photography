@@ -14,6 +14,9 @@
   --#{$prefix}testimonial-inner-border-radius: #{$card-inner-border-radius};
   --#{$prefix}testimonial-height: #{$card-height};
   --#{$prefix}testimonial-bg: #{$card-bg};
+  --#{$prefix}testimonial-image-width: #{$testimonial-image-size};
+  --#{$prefix}testimonial-image-border: 1rem solid;
+  --#{$prefix}testimonial-image-border-color: #{$gray-100};
   // scss-docs-end card-css-vars
 
   position: relative;
@@ -23,25 +26,40 @@
   height: var(--#{$prefix}testimonial-height);
   color: var(--#{$prefix}body-color);
   word-wrap: break-word;
-  background-color: var(--#{$prefix}testimonial-bg);
+  background-color: transparent;
   background-clip: border-box;
   border: var(--#{$prefix}testimonial-border-width) solid
     var(--#{$prefix}testimonial-border-color);
   @include border-radius(var(--#{$prefix}testimonial-border-radius));
-  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
 }
 
 .body,
 .footer {
   color: var(--#{$prefix}testimonial-color);
+  background-color: var(--#{$prefix}testimonial-bg);
+  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
+}
+
+.image {
+  position: relative;
+  bottom: calc(var(--#{$prefix}testimonial-image-width) / -2);
+  
+  display: flex;
+  justify-content: center;
+
+  img {
+    border-radius: 50%;
+    border: var(--#{$prefix}testimonial-image-border)
+      var(--#{$prefix}testimonial-image-border-color);
+  }
 }
 
 .body {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
-  padding: var(--#{$prefix}testimonial-spacer-y)
-    var(--#{$prefix}testimonial-spacer-x);
+  padding: calc(10rem + var(--#{$prefix}testimonial-spacer-y))
+    var(--#{$prefix}testimonial-spacer-x) var(--#{$prefix}testimonial-spacer-y);
 }
 
 .footer {
