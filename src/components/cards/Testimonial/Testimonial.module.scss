@@ -30,3 +30,16 @@
   @include border-radius(var(--#{$prefix}testimonial-border-radius));
   @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
 }
+
+.body,
+.footer {
+  padding: var(--#{$prefix}testimonial-spacer-y)
+    var(--#{$prefix}testimonial-spacer-x);
+  color: var(--#{$prefix}testimonial-color);
+}
+
+.body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+}

@@ -1,11 +1,13 @@
 import React from "react";
-import { base as cBase } from "./Testimonial.module.scss";
+import ReactMarkdown from "react-markdown";
+
+import { base as cBase, body as cBody } from "./Testimonial.module.scss";
 
 const Testimonial = (props: TestimonialProps) => {
   return (
     <div className={cBase}>
       <div>Img</div>
-      <div>Quote</div>
+      <ReactMarkdown className={cBody} children={props.quote || ""} />
       <div>Name</div>
       <div>Month YYYY</div>
     </div>
