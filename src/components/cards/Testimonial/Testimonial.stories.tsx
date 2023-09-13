@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonial from "./Testimonial";
+import { allSanityTestimonials } from "@testing/data";
 
 const meta: Meta<typeof Testimonial> = {
   title: "Cards/Testimonial",
@@ -16,4 +17,13 @@ const meta: Meta<typeof Testimonial> = {
 export default meta;
 type Story = StoryObj<typeof Testimonial>;
 
-export const Default: Story = {};
+const dummyData = allSanityTestimonials.nodes[0];
+
+export const Default: Story = {
+  args: {
+    date: dummyData.date,
+    image: dummyData.image.asset as ValkyrPhoto,
+    name: dummyData.name,
+    quote: dummyData.quote,
+  },
+};

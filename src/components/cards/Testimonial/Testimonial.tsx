@@ -1,6 +1,6 @@
 import React from "react";
 
-const Testimonial = () => {
+const Testimonial = (props: TestimonialProps) => {
   return (
     <div>
       <div>Img</div>
@@ -12,3 +12,10 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+type TestimonialProps = {
+  date: Queries.SanityTestimonials["date"];
+  image: ValkyrPhoto;
+  name: string;
+  quote: Queries.SanityTestimonials["quote"];
+};
