@@ -33,11 +33,14 @@
   @include border-radius(var(--#{$prefix}testimonial-border-radius));
 }
 
+.inner {
+  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
+}
+
 .body,
 .footer {
   color: var(--#{$prefix}testimonial-color);
   background-color: var(--#{$prefix}testimonial-bg);
-  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
 }
 
 .image {

@@ -8,6 +8,7 @@ import {
   date as cDate,
   footer as cFooter,
   image as cImage,
+  inner as cInner,
   name as cName,
 } from "./Testimonial.module.scss";
 import { getMonthFromSanityDate, getYearFromSanityDate } from "@helpers";
@@ -32,13 +33,15 @@ const Testimonial = ({ date, image, ...props }: TestimonialProps) => {
       <div className={cImage}>
         <GatsbyImage alt={image.altText || ""} image={imgData} />
       </div>
-      <ReactMarkdown className={cBody} children={props.quote || ""} />
-      <div className={cFooter}>
-        <div className={cName}>
-          {"\u2014"} {props.name}
-        </div>
-        <div className={cDate}>
-          {month} {year}
+      <div className={cInner}>
+        <ReactMarkdown className={cBody} children={props.quote || ""} />
+        <div className={cFooter}>
+          <div className={cName}>
+            {"\u2014"} {props.name}
+          </div>
+          <div className={cDate}>
+            {month} {year}
+          </div>
         </div>
       </div>
     </div>
