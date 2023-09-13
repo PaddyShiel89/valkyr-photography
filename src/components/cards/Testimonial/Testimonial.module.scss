@@ -79,10 +79,18 @@
 }
 
 .name {
-  color: var(--#{$prefix}card-title-color);
+  color: var(--#{$prefix}testimonial-title-color);
 }
 
 .date {
   color: var(--#{$prefix}testimonial-subtitle-color);
   font-size: 80%;
+}
+
+@include dark-mode {
+  .base {
+    --#{$prefix}testimonial-title-color: #{$card-title-color-dark};
+    --#{$prefix}testimonial-subtitle-color: #{$card-subtitle-color-dark};
+    --#{$prefix}testimonial-image-border-color: #{$charcoal};
+  }
 }
