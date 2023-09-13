@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonial from "./Testimonial";
 import { allSanityTestimonials } from "@testing/data";
@@ -6,6 +7,13 @@ const meta: Meta<typeof Testimonial> = {
   title: "Cards/Testimonial",
   component: Testimonial,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div style={{ width: "30rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     backgrounds: {
       default: "gray-100",

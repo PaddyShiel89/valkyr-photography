@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.base {
+  // scss-docs-start card-css-vars
+  --#{$prefix}testimonial-spacer-y: #{$card-spacer-y};
+  --#{$prefix}testimonial-spacer-x: #{$card-spacer-x};
+  --#{$prefix}testimonial-title-spacer-y: #{$card-title-spacer-y};
+  --#{$prefix}testimonial-title-color: #{$card-title-color};
+  --#{$prefix}testimonial-subtitle-color: #{$card-subtitle-color};
+  --#{$prefix}testimonial-border-width: #{$card-border-width};
+  --#{$prefix}testimonial-border-color: #{$card-border-color};
+  --#{$prefix}testimonial-border-radius: #{$card-border-radius};
+  --#{$prefix}testimonial-box-shadow: #{$card-box-shadow};
+  --#{$prefix}testimonial-inner-border-radius: #{$card-inner-border-radius};
+  --#{$prefix}testimonial-height: #{$card-height};
+  --#{$prefix}testimonial-bg: #{$card-bg};
+  // scss-docs-end card-css-vars
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  height: var(--#{$prefix}testimonial-height);
+  color: var(--#{$prefix}body-color);
+  word-wrap: break-word;
+  background-color: var(--#{$prefix}testimonial-bg);
+  background-clip: border-box;
+  border: var(--#{$prefix}testimonial-border-width) solid
+    var(--#{$prefix}testimonial-border-color);
+  @include border-radius(var(--#{$prefix}testimonial-border-radius));
+  @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
+}
