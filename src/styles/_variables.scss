@@ -94,6 +94,11 @@ $badge-font-size: 85%;
 $badge-padding-y: math.div($spacer, 2);
 $badge-padding-x: math.div($spacer, 3) * 2;
 
+/* --------------------------------- Modals --------------------------------- */
+
+$modal-backdrop-bg: $white;
+$modal-backdrop-opacity: 0.85;
+
 @import "./variables-dark";
 
 @import "bootstrap/scss/variables";

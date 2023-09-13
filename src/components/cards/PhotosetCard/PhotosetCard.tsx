@@ -45,10 +45,8 @@ const PhotosetCard = ({
       </ConditionalLink>
       <div className={cBody}>
         <h3>
-          <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
-            <div className={cTitle}>{modelNamesAsTitle}</div>
-            <div className={cSubtitle}>{subtitle}</div>
-          </ConditionalLink>
+          <div className={cTitle}>{modelNamesAsTitle}</div>
+          <div className={cSubtitle}>{subtitle}</div>
         </h3>
         {!!description ? (
           <div className={cDescription}>
@@ -69,10 +67,7 @@ export default PhotosetCard;
 
 export type PhotosetCardProps = {
   description: Queries.SanityPhotosets["description"];
-  featuredPhoto: {
-    altText: Queries.SanityImageAsset["altText"];
-    gatsbyImage: Queries.SanityImageAsset["gatsbyImage"];
-  };
+  featuredPhoto: ValkyrPhoto;
   models: Queries.SanityModels["name"][];
   slug: Queries.SanityPhotosets["slug"];
   subtitle: Queries.SanityPhotosets["title"];
