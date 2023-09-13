@@ -41,9 +41,8 @@
 }
 
 .image {
-  position: relative;
-  bottom: calc(var(--#{$prefix}testimonial-image-width) / -2);
-  
+  margin-bottom: calc(var(--#{$prefix}testimonial-image-width) / -2);
+
   display: flex;
   justify-content: center;
 
@@ -58,7 +57,10 @@
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
-  padding: calc(10rem + var(--#{$prefix}testimonial-spacer-y))
+  padding: calc(
+      var(--#{$prefix}testimonial-image-width) / 2 +
+        var(--#{$prefix}testimonial-spacer-y)
+    )
     var(--#{$prefix}testimonial-spacer-x) var(--#{$prefix}testimonial-spacer-y);
 }
 

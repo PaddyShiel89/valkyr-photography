@@ -20,7 +20,12 @@ const Testimonial = ({ date, image, ...props }: TestimonialProps) => {
 
   /* -------------------------- GatsbyImage component ------------------------- */
 
-  const imgData = getImage(image.gatsbyImage) as IGatsbyImageData;
+  // Set image height to equal width
+  const imgData = getImage({
+    ...image.gatsbyImage,
+    height: 220,
+    width: 220,
+  }) as IGatsbyImageData;
 
   return (
     <div className={cBase}>
