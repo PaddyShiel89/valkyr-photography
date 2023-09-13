@@ -8,6 +8,7 @@ import { IGatsbyImageData } from "gatsby-plugin-image";
 
 const defaultProps: MasonryGalleryProps = {
   lightbox: true,
+  lightboxID: "myLightboxID",
   photos: sanityPhotosets.photos.map((p) => ({
     altText: p.asset.altText,
     gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
