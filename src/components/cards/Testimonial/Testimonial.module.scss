@@ -35,6 +35,9 @@
 
 .inner {
   @include box-shadow(var(--#{$prefix}testimonial-box-shadow));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .body,

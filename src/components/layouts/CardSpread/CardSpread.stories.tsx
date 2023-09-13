@@ -4,9 +4,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import PhotosetCard, {
   PhotosetCardProps,
 } from "@components/cards/PhotosetCard/PhotosetCard";
-import { photosetCardQuery } from "@testing/data";
+import { allSanityTestimonials, photosetCardQuery } from "@testing/data";
 import { getModelsFromSanityPhotos } from "@helpers";
 import CardSpread from "./CardSpread";
+import Testimonial from "@components/cards/Testimonial/Testimonial";
 
 const meta: Meta<typeof CardSpread> = {
   title: "Layouts/Card spread",
@@ -22,7 +23,7 @@ const meta: Meta<typeof CardSpread> = {
 export default meta;
 type Story = StoryObj<typeof CardSpread>;
 
-const data: PhotosetCardProps[] =
+const photosetCardData: PhotosetCardProps[] =
   photosetCardQuery.allSanityPhotosets.nodes.map((n) => {
     return {
       description: n.description,
@@ -38,7 +39,7 @@ const data: PhotosetCardProps[] =
     };
   });
 
-export const Default: Story = {
+export const PhotosetCards: Story = {
   args: {
     callToAction: {
       children: "View all photosets",
@@ -46,12 +47,30 @@ export const Default: Story = {
     },
     children: (
       <>
-        <PhotosetCard {...data[0]} />
-        <PhotosetCard {...data[1]} />
-        <PhotosetCard {...data[2]} />
-        <PhotosetCard {...data[3]} />
+        <PhotosetCard {...photosetCardData[0]} />
+        <PhotosetCard {...photosetCardData[1]} />
+        <PhotosetCard {...photosetCardData[2]} />
+        <PhotosetCard {...photosetCardData[3]} />
       </>
     ),
     title: "Recent photosets",
+  },
+};
+
+const testimonialData = allSanityTestimonials.nodes.map((t) => ({
+  ...t,
+  image: t.image.asset as ValkyrPhoto,
+}));
+
+export const Testimonials: Story = {
+  args: {
+    children: (
+      <>
+        <Testimonial {...testimonialData[0]} />
+        <Testimonial {...testimonialData[1]} />
+        <Testimonial {...testimonialData[2]} />
+      </>
+    ),
+    title: "Testimonials",
   },
 };
