@@ -12,6 +12,7 @@ import {
   image as cImage,
   inner as cInner,
 } from "./Lightbox.module.scss";
+import { useSwipeable } from "react-swipeable";
 
 const Lightbox = ({
   id,
@@ -51,6 +52,12 @@ const Lightbox = ({
     }
   };
 
+  // Swipe handlers for swiping between images.
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextImageHandler,
+    onSwipedRight: previousImageHandler,
+  });
+
   // Set a responsive max width to ensure that the size of the image box is the
   // same as the actual image. This stops letterboxing with `objectFit: contain`
   // which stops clicks from passing through to close the  lightbox when the
@@ -63,7 +70,13 @@ const Lightbox = ({
 
   return show ? (
     <>
-      <div className={cBase} id={id} onClick={handleModalClick}>
+      <div
+        className={cBase}
+        data-testid="lightbox"
+        id={id}
+        onClick={handleModalClick}
+        {...swipeHandlers}
+      >
         <div className={cInner}>
           <button
             aria-controls={id}
