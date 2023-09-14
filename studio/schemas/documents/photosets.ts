@@ -1,5 +1,6 @@
 import {SchemaTypeDefinition} from 'sanity'
 import {FaImages} from 'react-icons/fa6'
+import {slugifyPhotoset} from '../../helpers'
 
 const photosets: SchemaTypeDefinition = {
   name: 'photosets',
@@ -60,9 +61,13 @@ const photosets: SchemaTypeDefinition = {
     },
     {
       name: 'slug',
-      type: 'string',
+      type: 'slug',
       title: 'Page slug',
-      description: 'The url slug for the photoset page.',
+      description: 'The slug for the photoset page.',
+      options: {
+        source: 'title',
+        slugify: slugifyPhotoset,
+      },
       validation: (Rule) => Rule.required(),
     },
   ],
