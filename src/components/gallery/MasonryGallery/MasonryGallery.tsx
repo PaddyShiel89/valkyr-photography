@@ -60,7 +60,7 @@ const MasonryGallery = ({
         <Lightbox
           id={lightboxID}
           nextImageHandler={handleLoadNextImage}
-          photo={photosetData[currentPhoto]}
+          photo={lightboxPhotos[currentPhoto]}
           previousImageHandler={handleLoadPreviousImage}
           setShowHandler={setLightboxOpen}
           show={lightboxOpen}
@@ -107,10 +107,7 @@ const MasonryGalleryItem = ({ lightbox, photo }: MasonryGalleryItemProps) => {
         tabIndex={lightbox.isOpen ? -1 : undefined}
         type="button"
       >
-        <GatsbyImage
-          alt={lightbox.photo.altText || ""}
-          image={getImage(lightbox.photo) as IGatsbyImageData}
-        />
+        <GatsbyImage alt={photo.altText || ""} image={imgData} />
       </button>
     </li>
   ) : (
@@ -124,7 +121,6 @@ type MasonryGalleryItemProps = {
   lightbox?: {
     clickHandler: React.MouseEventHandler<HTMLButtonElement>;
     isOpen: boolean;
-    photo: ValkyrPhoto;
   };
   photo: ValkyrPhoto;
 };
