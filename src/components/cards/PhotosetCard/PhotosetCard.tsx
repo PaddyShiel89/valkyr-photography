@@ -27,6 +27,7 @@ const PhotosetCard = ({
     featuredPhoto?.gatsbyImage || null
   ) as IGatsbyImageData;
 
+  const linkPath = "photosets/" + slug?.current;
   const linkText = "Check out this photoset";
 
   /* --------------------- Manage title using model names --------------------- */
@@ -40,7 +41,7 @@ const PhotosetCard = ({
 
   return (
     <div className={cBase}>
-      <ConditionalLink to={slug} aria-label={linkText} tabIndex={-1}>
+      <ConditionalLink to={linkPath} aria-label={linkText} tabIndex={-1}>
         <GatsbyImage alt={featuredPhoto.altText || ""} image={imgData} />
       </ConditionalLink>
       <div className={cBody}>
@@ -56,7 +57,7 @@ const PhotosetCard = ({
       </div>
       {slug ? (
         <div className={cFooter}>
-          <CallToAction to={slug}>{linkText}</CallToAction>
+          <CallToAction to={linkPath}>{linkText}</CallToAction>
         </div>
       ) : null}
     </div>

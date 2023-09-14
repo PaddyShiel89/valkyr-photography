@@ -61,7 +61,12 @@ export const query = graphql`
         altTitle
         date
         description
-        slug
+        slug {
+          _key
+          _type
+          current
+          source
+        }
         title
         photos {
           _key
