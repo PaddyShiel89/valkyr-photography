@@ -15,6 +15,10 @@ const meta: Meta<typeof MasonryGallery> = {
   },
   args: {
     lightboxID: "myLightboxID",
+    lightboxPhotos: sanityPhotosets.photos.map((p) => ({
+      altText: p.asset.altText,
+      gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,
+    })),
     photos: sanityPhotosets.photos.map((p) => ({
       altText: p.asset.altText,
       gatsbyImage: p.asset.gatsbyImage as IGatsbyImageData,

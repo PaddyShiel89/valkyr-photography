@@ -5,8 +5,9 @@ import Lightbox from "@components/gallery/Lightbox/Lightbox";
 
 const MasonryGallery = ({
   lightbox,
-  photos,
   lightboxID,
+  lightboxPhotos,
+  photos,
 }: MasonryGalleryProps) => {
   const photosetData = photos.map((p) => {
     const imgData = getImage(p.gatsbyImage) as IGatsbyImageData;
@@ -44,6 +45,7 @@ const MasonryGallery = ({
         {photosetData.map((p, i) => {
           const lightboxData = lightbox
             ? {
+                photo: lightboxPhotos[i],
                 clickHandler: () => handleItemClick(i),
                 isOpen: lightboxOpen,
               }
@@ -77,11 +79,13 @@ interface MasonryGallerySharedProps {
 type MasonryGalleryWithLightboxProps = MasonryGallerySharedProps & {
   lightbox: true;
   lightboxID: string;
+  lightboxPhotos: ValkyrPhoto[];
 };
 
 type MasonryGalleryWithoutLightboxProps = MasonryGallerySharedProps & {
   lightbox: false;
   lightboxID: undefined;
+  lightboxPhotos: undefined;
 };
 
 export type MasonryGalleryProps =
@@ -103,7 +107,10 @@ const MasonryGalleryItem = ({ lightbox, photo }: MasonryGalleryItemProps) => {
         tabIndex={lightbox.isOpen ? -1 : undefined}
         type="button"
       >
-        <GatsbyImage alt={photo.altText || ""} image={imgData} />
+        <GatsbyImage
+          alt={lightbox.photo.altText || ""}
+          image={getImage(lightbox.photo) as IGatsbyImageData}
+        />
       </button>
     </li>
   ) : (
@@ -117,6 +124,7 @@ type MasonryGalleryItemProps = {
   lightbox?: {
     clickHandler: React.MouseEventHandler<HTMLButtonElement>;
     isOpen: boolean;
+    photo: ValkyrPhoto;
   };
   photo: ValkyrPhoto;
 };
