@@ -1,8 +1,19 @@
 import {SlugifierFn} from 'sanity'
+import {getMonthFromSanityDate, getYearFromSanityDate} from '../../src/helpers'
 
 export const slugifyPhotoset: SlugifierFn = async (input, type, content) => {
   const {getClient} = content
   const client = getClient({apiVersion: '2021-08-31'})
+
+  /* -------------------------------- Get date -------------------------------- */
+
+  // @ts-ignore
+  const month = getMonthFromSanityDate(content.parent.date)
+  // @ts-ignore
+  const year = getYearFromSanityDate(content.parent.date)
+  const date = [month, year]
+
+  /* ----------------------------- Get model names ---------------------------- */
 
   // Create an object which will contain each model ref as a key and the
   // number of appearances in the set as a value.
@@ -38,13 +49,13 @@ export const slugifyPhotoset: SlugifierFn = async (input, type, content) => {
       const query = `*[_type == "models" && _id == $id].name`
       const params = {id: _ref[0]}
       await client.fetch(query, params).then((res: string) => {
-        console.log(res)
         modelNames.push(res)
       })
     }),
   )
 
-  return (modelNames.join(' ') + ' ' + input)
+  return [...modelNames, ...date, input]
+    .join(' ')
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(',', '')
