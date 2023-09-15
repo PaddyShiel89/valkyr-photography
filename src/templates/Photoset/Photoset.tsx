@@ -41,7 +41,7 @@ const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
 
 export default PhotosetPage;
 
-interface PhotosetPageProps {
+export interface PhotosetPageProps {
   id: string;
   photos: Queries.SanityPhotosets["photos"];
   thumbs: Queries.SanityPhotosets["photos"];
