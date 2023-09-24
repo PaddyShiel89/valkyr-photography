@@ -4,9 +4,11 @@ import { IGatsbyImageData, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import "@styles/global.scss";
 import MasonryGallery from "@components/gallery/MasonryGallery/MasonryGallery";
+import ReactMarkdown from "react-markdown";
 
 const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
   console.log(pageContext);
+  const { description } = pageContext;
 
   const photoData =
     pageContext.photos?.map((p) => ({
@@ -29,6 +31,11 @@ const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
     <main>
       <h1>{pageContext.title}</h1>
       <div>{pageContext.title}</div>
+      {!!description ? (
+        <div>
+          <ReactMarkdown children={description} />
+        </div>
+      ) : null}
       <MasonryGallery
         lightbox
         lightboxID={"lightbox" + pageContext.id}
@@ -42,6 +49,7 @@ const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
 export default PhotosetPage;
 
 export interface PhotosetPageProps {
+  description: Queries.SanityPhotosets["description"];
   id: string;
   photos: Queries.SanityPhotosets["photos"];
   thumbs: Queries.SanityPhotosets["photos"];
