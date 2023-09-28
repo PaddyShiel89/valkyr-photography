@@ -37,6 +37,7 @@
   // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
   // See also https://github.com/twbs/bootstrap/issues/17695
 
+  // 900px
   @media (min-width: 56.25em) {
     --#{$prefix}modal-margin: #{$modal-dialog-margin-y-sm-up};
   }
@@ -98,8 +99,7 @@
       }
     }
 
-    // 800px
-    @media (min-width: 50em) {
+    @include media-breakpoint-up(md) {
       @include font-size(4rem);
       padding: $spacer * 1.5;
     }

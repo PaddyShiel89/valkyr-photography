@@ -52,6 +52,27 @@ $section-padding-y: $spacer * 4;
 $section-padding-x: $spacer * 2;
 $section-color: $gray-100;
 
+/* ---------------------------------- Grid ---------------------------------- */
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 36em /* 576px */,
+  md: 50em /* 800px */,
+  lg: 62.5em /* 1,000px */,
+  xl: 75em /* 1,200px */,
+  xxl: 100em /* 1,600px */,
+);
+
+$container-max-widths: (
+  sm: 54rem,
+  md: 77rem,
+  lg: 96rem,
+  xl: 114rem,
+  xxl: 150rem,
+);
+
+$grid-gutter-width: $spacer;
+
 /* ------------------------------- Typography ------------------------------- */
 
 $font-family-sans-serif: "Roboto", sans-serif;

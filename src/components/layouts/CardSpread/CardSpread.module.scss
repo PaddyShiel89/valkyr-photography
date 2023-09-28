@@ -28,13 +28,12 @@
   gap: $spacer;
   row-gap: $spacer * 2;
 
-  // 900px
-  @media (min-width: 56.25em) {
+  @include media-breakpoint-up(lg) {
     grid-template-columns: repeat(2, minmax(auto, 50rem));
   }
 
   // 1600px
-  @media (min-width: 100em) {
+  @include media-breakpoint-up(xxl) {
     grid-template-columns: repeat(4, minmax(auto, 50rem));
   }
 }

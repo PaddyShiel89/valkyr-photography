@@ -3,6 +3,7 @@ import { base as cBase, inner as cInner } from "./CardSpread.module.scss";
 import CallToAction, {
   CallToActionProps,
 } from "@components/buttons/CallToAction/CallToAction";
+import Container from "../Container/Container";
 
 const CardSpread = ({
   callToAction,
@@ -14,7 +15,7 @@ const CardSpread = ({
   return (
     <section className={cBase}>
       {title ? <h2>{title}</h2> : null}
-      <div className={classes} {...props} />
+      <Container className={classes} {...props} />
       {callToAction ? <CallToAction {...callToAction} size="lg" /> : null}
     </section>
   );
