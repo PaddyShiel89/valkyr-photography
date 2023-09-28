@@ -6,6 +6,7 @@ import "@styles/global.scss";
 import MasonryGallery from "@components/gallery/MasonryGallery/MasonryGallery";
 import ReactMarkdown from "react-markdown";
 import Container from "@components/layouts/Container/Container";
+import { main as cMain } from "./Photoset.module.scss";
 
 const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
   console.log(pageContext);
@@ -29,7 +30,7 @@ const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
   });
 
   return (
-    <main>
+    <main className={cMain}>
       <Container>
         <h1>{pageContext.title}</h1>
         <div>{pageContext.title}</div>
