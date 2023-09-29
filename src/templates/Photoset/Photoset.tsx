@@ -33,12 +33,13 @@ const PhotosetPage = ({ pageContext }: PageProps<{}, PhotosetPageProps>) => {
     <main className={cMain}>
       <Container>
         <h1>{pageContext.title}</h1>
-        <div>{pageContext.title}</div>
         {!!description ? (
           <div>
             <ReactMarkdown children={description} />
           </div>
         ) : null}
+      </Container>
+      <Container variant="translucent">
         <MasonryGallery
           lightbox
           lightboxID={"lightbox" + pageContext.id}

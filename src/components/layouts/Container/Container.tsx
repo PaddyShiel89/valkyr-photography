@@ -1,21 +1,43 @@
 import React from "react";
 import classNames from "classnames";
 
-import { base as cBase, fixed as cFixed } from "./Container.module.scss";
+import {
+  base as cBase,
+  inner as cInner,
+  fixed as cFixed,
+  translucent as cTranslucent,
+  transparent as cTransparent,
+} from "./Container.module.scss";
 
-const Container = ({ width = "fixed", ...props }: ContainerProps) => {
-  const classes = classNames(
-    cBase,
+const Container = ({
+  variant = "opaque",
+  width = "fixed",
+  ...props
+}: ContainerProps) => {
+  const baseClasses = classNames(cBase, {
+    [cTranslucent]: variant === "translucent",
+    [cTransparent]: variant === "translucent",
+  });
+
+  const innerClasses = classNames(
+    cInner,
     { [cFixed]: width === "fixed" },
     props.className
   );
-  return <div {...props} className={classes} />;
+
+  return (
+    <div className={baseClasses}>
+      <div {...props} className={innerClasses} />
+    </div>
+  );
 };
 
-type ContainerProps = React.DetailedHTMLProps<
+export type ContainerProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {
+  /** Sets the background colour. */
+  variant?: "opaque" | "translucent" | "transparent";
   width?: "fixed" | "fluid";
 };
 

@@ -1,6 +1,16 @@
 @import "@styles/variables";
+@import "@styles/mixins";
 
 .base {
+  --#{$prefix}container-bg: var(--valkyr-body-bg);
+  --#{$prefix}container-padding-y: #{$spacer * 3};
+
+  padding: var(--#{$prefix}container-padding-y) 0;
+  background-color: var(--valkyr-container-bg);
+  color: var(--valkyr-body-color);
+}
+
+.inner {
   @include make-container();
 }
 
@@ -9,5 +19,19 @@
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
       max-width: $container-max-width;
     }
+  }
+}
+
+.translucent {
+  --#{$prefix}container-bg: #{$gray-100};
+}
+
+.transparent {
+  background-color: none;
+}
+
+@include dark-mode {
+  .translucent {
+    --#{$prefix}container-bg: #{$charcoal};
   }
 }

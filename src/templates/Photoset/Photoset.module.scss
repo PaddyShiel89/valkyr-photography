@@ -1,5 +1,6 @@
 .main {
-  padding-top: $spacer * 2;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     text-align: center;

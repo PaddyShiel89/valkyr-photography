@@ -5,3 +5,7 @@
 @import "./variables";
 @import "./root";
 @import "bootstrap/scss/reboot";
+
+p:last-child {
+  margin-bottom: 0;
+}
